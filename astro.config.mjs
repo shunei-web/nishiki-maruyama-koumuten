@@ -10,11 +10,17 @@ export default defineConfig({
         "astro:config:setup": ({ injectScript }) => {
           injectScript(
             "page-ssr",
-            `import '/src/css/variable/typography.css';`,
+            `import '/src/styles/css/variable/typography.css';`,
           );
-          injectScript("page-ssr", `import '/src/css/variable/colors.css';`);
+          injectScript(
+            "page-ssr",
+            `import '/src/styles/css/variable/colors.css';`,
+          );
           injectScript("page-ssr", `import '@acab/reset.css';`);
-          injectScript("page-ssr", `import '/src/css/foundation/base.css';`);
+          injectScript(
+            "page-ssr",
+            `import '/src/styles/css/foundation/base.css';`,
+          );
         },
       },
     },
