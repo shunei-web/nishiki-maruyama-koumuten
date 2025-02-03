@@ -1,0 +1,43 @@
+@use "sass:map";
+@use "sass:meta";
+
+// ブレイクポイント
+$breakpoints: (
+  "sm": 576,
+  "md": 768,
+  "lg": 1024,
+  "xl": 1280,
+  "bp": 768,
+) !default;
+
+/// レスポンシブデザイン用のメディアクエリを生成するミックスイン
+///
+/// @param {String} $breakpoint [md] - 使用するブレークポイント。$breakpointsマップ内のキーを指定。
+/// @param {Boolean} $below [false] - trueの場合、指定されたブレークポイント未満の範囲に適用。
+///
+/// @example scss
+///   .example {
+///     font-size: 16px;
+///
+///     @include mq(md) {
+///       font-size: 18px; // md以上の画面幅で適用
+///     }
+///
+///     @include mq(lg, true) {
+///       font-size: 14px; // lg未満の画面幅で適用
+///     }
+///   }
+///
+/// @require {map} $breakpoints
+@mixin mq($breakpoint: bp, $below: false) {
+  $breakpoint-value: map.get($breakpoints, $breakpoint);
+  @if meta.type-of($breakpoint) == number {
+    $breakpoint-value: $breakpoint;
+  }
+
+  $operator: if($below, "not ", "");
+
+  @media #{$operator} screen and (min-width: #{$breakpoint-value}px) {
+    @content;
+  }
+}

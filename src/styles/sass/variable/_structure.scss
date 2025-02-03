@@ -1,0 +1,22 @@
+@use "../global" as global;
+
+:root {
+  // ビューポート
+  --viewport-min: 450; // SPのデザインカンプの横幅
+  --viewport-breakpoint: 768; // ブレイクポイントの横幅
+  --viewport-inner: 1440; // PCのデザインカンプのインナー幅
+  --viewport-max: 1000; // PCのデザインカンプの横幅
+  --horizontal-spacing-min: 35; // SPのデザインカンプの水平余白
+  --horizontal-spacing-max: 240; // PCのデザインカンプの水平余白
+
+  @include global.clamp(
+    --horizontal-spacing,
+    var(--horizontal-spacing-min),
+    var(--horizontal-spacing-max)
+  );
+
+  // ビューポート（単位付き）
+  --fluid-ratio-min: calc(1 / var(--viewport-min) * 100dvi);
+  --fluid-ratio-breakpoint: calc(1 / var(--viewport-breakpoint) * 100dvi);
+  --fluid-ratio-max: calc(1 / var(--viewport-max) * 100dvi);
+}
