@@ -1,28 +1,28 @@
 :root {
-  /* フォントファミリー */
+  // フォントファミリー
   --_font-family-base: sans-serif;
 
-  /* 日本語フォントファミリー */
+  // 日本語フォントファミリー
   --_font-family-ja-default: "Hiragino Kaku Gothic ProN", "Hiragino Sans",
     "BIZ UDPGothic", "Meiryo";
 
-  /* 日本語 */
+  // 日本語
   --_font-family-ja: "Inter";
   --font-family-ja: var(--_font-family-ja), var(--_font-family-ja-default),
     var(--_font-family-base);
 
-  /* 比率 */
+  // 比率
   --font-size-rem: 16;
   --rem-ratio: calc(1rem / var(--font-size-rem));
 
-  /* ルートフォント設定 */
+  // ルートフォント設定
   --font-family: var(--font-family-ja);
   --font-size: var(--font-size-base, 16);
   --line-height: var(--line-height-base, 1.6);
 
-  /* 文字サイズ */
+  // 文字サイズ
   --font-size-base: calc(15 * var(--rem-ratio));
 
-  /* 行ボックスの高さ */
+  // 行ボックスの高さ
   --line-height-base: calc(18 / 15);
 }

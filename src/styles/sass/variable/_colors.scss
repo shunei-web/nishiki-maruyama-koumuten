@@ -1,26 +1,26 @@
 :root {
-  /* 基本色 */
+  // 基本色
   --color-white: #fff;
   --color-black: #000;
 
-  /* メインカラー */
+  // メインカラー
   --color-main: #000080;
 
-  /* 文字 */
+  // 文字
   --color-text: var(--color-text-black);
   --color-text-black: #000;
 
-  /* 地色 */
+  // 地色
   --color-ground: var(--color-ground-light);
   --color-ground-light: #fff;
 
-  /* ボタン */
+  // ボタン
   --color-button-text: #fff;
   --color-button-ground: var(--color-main);
 
-  /* ハンバーガーボタン */
+  // ハンバーガーボタン
   --color-hamburger: #d9d9d9;
 
-  /* 不透明度 */
+  // 不透明度
   --opacity: 0.9;
 }
