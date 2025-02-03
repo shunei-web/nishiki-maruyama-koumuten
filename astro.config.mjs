@@ -9,7 +9,7 @@ export default defineConfig({
       hooks: {
         "astro:config:setup": ({ injectScript }) => {
           injectScript("page-ssr", `import '@acab/reset.css';`);
-          injectScript("page-ssr", `import '/src/css/base.css';`);
+          injectScript("page-ssr", `import '/src/css/foundation/base.css';`);
         },
       },
     },
