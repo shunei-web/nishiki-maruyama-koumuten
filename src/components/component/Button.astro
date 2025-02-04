@@ -6,10 +6,10 @@ const arrowRightImage = await getImage({ src: arrowRight });
 const { text } = Astro.props;
 ---
 
-<button>{text}</button>
+<a href="#">{text}</a>
 
 <style lang="scss" define:vars={{ arrowRight: `url(${arrowRightImage.src})` }}>
-  button {
+  a {
     @include global.clamp(--_padding-block, 9, 7);
 
     display: inline flex;
