@@ -12,3 +12,8 @@
   color: var(--color-text);
   background: var(--color-ground);
 }
+
+:where(img, svg, video) {
+  inline-size: 100%;
+  pointer-events: none;
+}
