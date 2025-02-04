@@ -9,7 +9,6 @@ export default defineConfig({
         scss: {
           additionalData: `\
             @use "/src/styles/sass/global/_index.scss" as global;\
-            @use "/src/styles/sass/style.scss" as *;\
             `,
         },
       },

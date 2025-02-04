@@ -1,15 +1,15 @@
 @use "../global" as global;
 
-:global(.l-section) {
+.l-section {
   position: relative;
 }
 
-:global(.l-section__inner) {
+.l-section__inner {
   box-sizing: initial;
   max-inline-size: calc(var(--viewport-inner) * var(--rem-ratio));
   padding-inline: var(--horizontal-spacing);
   margin-inline: auto;
 }
 
-:global(.l-section__content) {
+.l-section__content {
 }
