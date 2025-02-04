@@ -4,7 +4,24 @@ import WorksCard from "../../components/component/WorksCard.astro";
 
 const title = "丸山工務店でできること";
 
-const allPosts = await Astro.glob("../../pages/works/*.md");
+interface Post {
+  frontmatter: {
+    title: string;
+    thumbnail: {
+      url: string;
+      alt: string;
+    };
+    description: string;
+  };
+}
+
+const importPosts = import.meta.glob<Post>("../../pages/works/*.md");
+const posts = await Promise.all(
+  Object.entries(importPosts).map(async ([path, loader]) => {
+    const post = await loader();
+    return post;
+  }),
+);
 ---
 
 <section class="l-section">
@@ -15,7 +32,7 @@ const allPosts = await Astro.glob("../../pages/works/*.md");
       </div>
       <div class="content">
         {
-          allPosts.map((post) => (
+          posts.map((post) => (
             <WorksCard
               title={post.frontmatter.title}
               thumbnail={post.frontmatter.thumbnail}
