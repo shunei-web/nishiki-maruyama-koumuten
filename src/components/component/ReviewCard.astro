@@ -19,13 +19,15 @@ const { name, comment, thumbnail, portrait } = Astro.props;
 
 <article class="card">
   <div class="card__container">
-    <h3 class="card__name">{name}</h3>
+    <div class="card__block">
+      <h3 class="card__name">{name}</h3>
+      <div class="card__portrait">
+        <PictureFrame url={portrait.url} alt={portrait.alt} />
+      </div>
+    </div>
     <p class="card__comment">{comment}</p>
     <div class="card__thumbnail">
       <PictureFrame url={thumbnail.url} alt={thumbnail.alt} />
-    </div>
-    <div class="card__portrait">
-      <PictureFrame url={portrait.url} alt={portrait.alt} />
     </div>
   </div>
 </article>
@@ -37,25 +39,30 @@ const { name, comment, thumbnail, portrait } = Astro.props;
   .card__container {
     display: block grid;
     grid-template-areas:
-      "thumbnail thumbnail"
-      "portrait name"
-      "comment comment";
+      "thumbnail"
+      "block"
+      "comment";
+  }
+
+  .card__block {
+    grid-area: block;
+    display: block grid;
+    grid-template-areas: "portrait name";
+    grid-template-columns: 60fr 115fr;
+    column-gap: calc(5 * var(--rem-ratio));
+    align-items: center;
+    justify-items: center;
+    margin-block-start: calc(5 * var(--rem-ratio));
   }
 
   .card__name {
     grid-area: name;
-  }
+    font-size: var(--font-size-15-20);
+    font-weight: 400;
+    line-height: var(--line-height-15-18);
 
-  .card__comment {
-    grid-area: comment;
-  }
-
-  .card__thumbnail {
-    grid-area: thumbnail;
-
-    :global(img) {
-      object-fit: cover;
-      aspect-ratio: calc(180 / 200);
+    @include global.mq() {
+      line-height: var(--line-height-20-24);
     }
   }
 
@@ -64,6 +71,26 @@ const { name, comment, thumbnail, portrait } = Astro.props;
 
     :global(img) {
       object-fit: cover;
+    }
+  }
+
+  .card__comment {
+    grid-area: comment;
+    margin-block-start: calc(10 * var(--rem-ratio));
+    font-size: var(--font-size-15-20);
+    line-height: var(--line-height-15-18);
+
+    @include global.mq() {
+      line-height: var(--line-height-20-24);
+    }
+  }
+
+  .card__thumbnail {
+    grid-area: thumbnail;
+
+    :global(img) {
+      object-fit: cover;
+      aspect-ratio: calc(180 / 200);
     }
   }
 </style>
