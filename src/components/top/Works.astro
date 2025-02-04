@@ -1,0 +1,47 @@
+---
+import SectionHeading from "../../components/component/SectionHeading.astro";
+import WorksCard from "../../components/component/WorksCard.astro";
+
+const title = "丸山工務店でできること";
+
+const allPosts = await Astro.glob("../../pages/works/*.md");
+---
+
+<section class="l-section">
+  <div class="inner l-section__inner">
+    <div class="container l-section__container">
+      <div class="heading">
+        <SectionHeading title={title} />
+      </div>
+      <div class="content">
+        {
+          allPosts.map((post) => (
+            <WorksCard
+              title={post.frontmatter.title}
+              thumbnail={post.frontmatter.thumbnail}
+              description={post.frontmatter.description}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  section {
+  }
+
+  .inner {
+  }
+
+  .container {
+  }
+
+  .heading {
+  }
+
+  .content {
+    margin-block-start: calc(10 * var(--rem-ratio));
+  }
+</style>
