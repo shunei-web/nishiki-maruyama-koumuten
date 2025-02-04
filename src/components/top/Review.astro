@@ -1,8 +1,10 @@
 ---
 import SectionHeading from "../../components/component/SectionHeading.astro";
 import ReviewCard from "../../components/component/ReviewCard.astro";
+import Button from "../../components/component/Button.astro";
 
 const title = "お客様の声";
+const buttonText = "施工事例";
 
 interface Post {
   frontmatter: {
@@ -46,6 +48,9 @@ const posts = await Promise.all(
           ))
         }
       </div>
+      <div class="button">
+        <Button text={buttonText} />
+      </div>
     </div>
   </div>
 </section>
@@ -69,5 +74,10 @@ const posts = await Promise.all(
     display: block grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: calc(20 * var(--rem-ratio));
+  }
+
+  .button {
+    margin-block-start: calc(10 * var(--rem-ratio));
+    text-align: center;
   }
 </style>
