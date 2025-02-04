@@ -22,6 +22,22 @@
   background: var(--color-ground);
 }
 
+:where(a) {
+  text-decoration: none;
+  transition-timing-function: var(--ease-out-expo);
+  transition-duration: 0.5s;
+  transition-property: opacity;
+
+  &:focus-visible {
+    opacity: var(--opacity);
+  }
+  @media (any-hover: hover) {
+    &:hover:not(:disabled) {
+      opacity: var(--opacity);
+    }
+  }
+}
+
 :where(img, svg, video) {
   inline-size: 100%;
   pointer-events: none;
