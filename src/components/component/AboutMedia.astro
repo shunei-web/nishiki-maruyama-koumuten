@@ -25,8 +25,11 @@ import Button from "../../components/component/Button.astro";
 
 <style lang="scss">
   .media {
-    container-type: inline-size;
-    padding-block: calc(10 * var(--rem-ratio));
+    padding-block-start: calc(10 * var(--rem-ratio));
+
+    @container (min-width: 600px) {
+      padding-block-end: calc(20 * var(--rem-ratio));
+    }
   }
 
   .media__container {
