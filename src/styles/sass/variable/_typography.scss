@@ -25,8 +25,9 @@
   // 文字サイズ
   --font-size-base: calc(15 * var(--rem-ratio));
 
-  @include global.clamp(--font-size-30-50, 30, 50);
   @include global.clamp(--font-size-15-20, 15, 20);
+  @include global.clamp(--font-size-20-30, 20, 30);
+  @include global.clamp(--font-size-30-50, 30, 50);
 
   // 行ボックスの高さ
   --line-height-base: calc(18 / 15);
