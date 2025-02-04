@@ -1,3 +1,5 @@
+@use "../global" as global;
+
 :root {
   // フォントファミリー
   --_font-family-base: sans-serif;
@@ -23,6 +25,10 @@
   // 文字サイズ
   --font-size-base: calc(15 * var(--rem-ratio));
 
+  @include global.clamp(--font-size-30-50, 30, 50);
+
   // 行ボックスの高さ
   --line-height-base: calc(18 / 15);
+  --line-height-30-36: calc(36 / 30);
+  --line-height-50-61: calc(61 / 50);
 }
