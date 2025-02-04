@@ -5,9 +5,31 @@ import AboutMedia from "../../components/component/AboutMedia.astro";
 
 <section class="l-section">
   <div class="inner l-section__inner">
-    <div class="content l-section__content">
-      <SectionHeading />
-      <AboutMedia />
+    <div class="container l-section__container">
+      <div class="heading">
+        <SectionHeading />
+      </div>
+      <div class="content">
+        <AboutMedia />
+      </div>
     </div>
   </div>
 </section>
+
+<style lang="scss">
+  section {
+  }
+
+  .inner {
+  }
+
+  .container {
+  }
+
+  .heading {
+  }
+
+  .content {
+    margin-block-start: calc(10 * var(--rem-ratio));
+  }
+</style>

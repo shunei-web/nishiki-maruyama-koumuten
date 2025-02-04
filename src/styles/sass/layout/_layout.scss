@@ -2,6 +2,7 @@
 
 .l-section {
   position: relative;
+  margin-block-start: calc(10 * var(--rem-ratio));
 }
 
 .l-section__inner {
@@ -11,5 +12,6 @@
   margin-inline: auto;
 }
 
-.l-section__content {
+.l-section__container {
+  padding-block: calc(10 * var(--rem-ratio));
 }

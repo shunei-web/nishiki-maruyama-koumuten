@@ -56,6 +56,11 @@ import Button from "../../components/component/Button.astro";
 
   .media__content {
     display: contents;
+
+    @container (min-width: 600px) {
+      display: block flow;
+      padding-inline: calc(15 * var(--rem-ratio));
+    }
   }
 
   .media__text {
@@ -71,5 +76,9 @@ import Button from "../../components/component/Button.astro";
     grid-area: button;
     text-align: center;
     margin-block-start: calc(20 * var(--rem-ratio));
+
+    @container (min-width: 600px) {
+      margin-block-start: calc(62 * var(--rem-ratio));
+    }
   }
 </style>
