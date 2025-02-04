@@ -9,7 +9,7 @@
     "BIZ UDPGothic", "Meiryo";
 
   // 日本語
-  --_font-family-ja: "Inter";
+  --_font-family-ja: "Inter", "Noto Sans JP";
   --font-family-ja: var(--_font-family-ja), var(--_font-family-ja-default),
     var(--_font-family-base);
 
