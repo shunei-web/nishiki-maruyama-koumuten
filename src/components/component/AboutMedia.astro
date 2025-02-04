@@ -1,5 +1,5 @@
 ---
-const { mediaImage, text, buttonText } = Astro.props;
+const { mediaImage, imageAlt, text, buttonText } = Astro.props;
 
 import { Picture } from "astro:assets";
 
@@ -11,7 +11,7 @@ import Button from "../../components/component/Button.astro";
     <Picture
       src={mediaImage}
       formats={["avif", "webp"]}
-      alt=""
+      alt={imageAlt}
       pictureAttributes={{ class: "media__image" }}
     />
     <div class="media__content">
