@@ -7,7 +7,7 @@
   --viewport-inner: 1000; // PCのデザインカンプのインナー幅
   --viewport-max: 1440; // PCのデザインカンプの横幅
   --horizontal-spacing-min: 35; // SPのデザインカンプの水平余白
-  --horizontal-spacing-max: 240; // PCのデザインカンプの水平余白
+  --horizontal-spacing-max: 220; // PCのデザインカンプの水平余白
 
   @include global.clamp(
     --horizontal-spacing,
