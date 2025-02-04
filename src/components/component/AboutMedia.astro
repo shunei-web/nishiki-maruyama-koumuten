@@ -17,7 +17,9 @@ import Button from "../../components/component/Button.astro";
       <p class="media__text">
         丸山工務店は、丸山庄造社長のもと、二級建築大工技能士、二級建築士の資格を有する建築のプロフェッショナル集団です。埼玉県草加市、川口市、越谷市、春日部市、松伏町、吉川市を中心に、新築戸建、住宅リフォーム、店舗改装など、幅広いサービスを提供しています。私たちは施主様との緊密なコミュニケーションを大切にし、お客様のイメージや要望を丁寧に聞き取り、実現に向けて努力しています。お客様とともにより良い住まいづくりを目指し、高品質な工事を心がけています。
       </p>
-      <Button text="会社概要" />
+      <div class="media__button">
+        <Button text="会社概要" />
+      </div>
     </div>
   </div>
 </div>
@@ -25,12 +27,16 @@ import Button from "../../components/component/Button.astro";
 <style lang="scss">
   .media {
     container-type: inline-size;
+    padding-block: calc(10 * var(--rem-ratio));
   }
 
   .media__container {
     @include global.clamp(--_column-gap, 10, 40);
 
     display: block grid;
+    grid-template-areas:
+      "image text"
+      "button button";
     grid-template-columns: 150fr 220fr;
     column-gap: var(--_column-gap);
 
@@ -40,6 +46,8 @@ import Button from "../../components/component/Button.astro";
   }
 
   .media__image {
+    grid-area: image;
+
     img {
       object-fit: cover;
       block-size: 100%;
@@ -47,14 +55,21 @@ import Button from "../../components/component/Button.astro";
   }
 
   .media__content {
+    display: contents;
   }
 
   .media__text {
+    grid-area: text;
     font-size: var(--font-size-15-20);
     line-height: var(--line-height-15-18);
 
     @include global.mq() {
       line-height: var(--line-height-24-20);
     }
+  }
+  .media__button {
+    grid-area: button;
+    text-align: center;
+    margin-block-start: calc(20 * var(--rem-ratio));
   }
 </style>
