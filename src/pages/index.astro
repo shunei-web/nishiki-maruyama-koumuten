@@ -1,8 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Top from "../components/Top.astro";
+
+const title = "丸山工務店";
+const description =
+  "丸山工務店は、施主様との緊密なコミュニケーションを大切にし、お客様のイメージや要望を丁寧に聞き取り、実現に向けて努力しています。お客様とともにより良い住まいづくりを目指し、高品質な工事を心がけています。";
 ---
 
-<Layout title="丸山工務店">
+<Layout title={title} description={description}>
   <Top />
 </Layout>
