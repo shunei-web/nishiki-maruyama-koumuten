@@ -2,6 +2,7 @@
 import SectionHeading from "../../components/component/SectionHeading.astro";
 import AboutMedia from "../../components/component/AboutMedia.astro";
 
+const title = "当社について";
 import mediaImage from "../../assets/about.png";
 const text =
   "丸山工務店は、丸山庄造社長のもと、二級建築大工技能士、二級建築士の資格を有する建築のプロフェッショナル集団です。埼玉県草加市、川口市、越谷市、春日部市、松伏町、吉川市を中心に、新築戸建、住宅リフォーム、店舗改装など、幅広いサービスを提供しています。私たちは施主様との緊密なコミュニケーションを大切にし、お客様のイメージや要望を丁寧に聞き取り、実現に向けて努力しています。お客様とともにより良い住まいづくりを目指し、高品質な工事を心がけています。";
@@ -12,7 +13,7 @@ const buttonText = "会社概要";
   <div class="inner l-section__inner">
     <div class="container l-section__container">
       <div class="heading">
-        <SectionHeading title="当社について" />
+        <SectionHeading title={title} />
       </div>
       <div class="content">
         <AboutMedia
