@@ -1,0 +1,73 @@
+---
+import SectionHeading from "../../components/component/SectionHeading.astro";
+import ReviewCard from "../../components/component/ReviewCard.astro";
+
+const title = "お客様の声";
+
+interface Post {
+  frontmatter: {
+    name: string;
+    comment: string;
+    thumbnail: {
+      url: string;
+      alt: string;
+    };
+    portrait: {
+      url: string;
+      alt: string;
+    };
+  };
+}
+
+const importPosts = import.meta.glob<Post>("../../pages/review/*.md");
+const posts = await Promise.all(
+  Object.entries(importPosts).map(async ([path, loader]) => {
+    const post = await loader();
+    return post;
+  }),
+);
+---
+
+<section class="l-section">
+  <div class="inner l-section__inner">
+    <div class="container l-section__container">
+      <div class="heading">
+        <SectionHeading title={title} />
+      </div>
+      <div class="content">
+        {
+          posts.map((post) => (
+            <ReviewCard
+              name={post.frontmatter.name}
+              comment={post.frontmatter.comment}
+              thumbnail={post.frontmatter.thumbnail}
+              portrait={post.frontmatter.portrait}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  section {
+  }
+
+  .inner {
+  }
+
+  .container {
+    container-type: inline-size;
+  }
+
+  .heading {
+  }
+
+  .content {
+    margin-block-start: calc(10 * var(--rem-ratio));
+    display: block grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: calc(20 * var(--rem-ratio));
+  }
+</style>

@@ -1,0 +1,69 @@
+---
+import PictureFrame from "../../components/component/PictureFrame.astro";
+
+interface Props {
+  name: string;
+  comment: string;
+  thumbnail: {
+    url: string;
+    alt: string;
+  };
+  portrait: {
+    url: string;
+    alt: string;
+  };
+}
+
+const { name, comment, thumbnail, portrait } = Astro.props;
+---
+
+<article class="card">
+  <div class="card__container">
+    <h3 class="card__name">{name}</h3>
+    <p class="card__comment">{comment}</p>
+    <div class="card__thumbnail">
+      <PictureFrame url={thumbnail.url} alt={thumbnail.alt} />
+    </div>
+    <div class="card__portrait">
+      <PictureFrame url={portrait.url} alt={portrait.alt} />
+    </div>
+  </div>
+</article>
+
+<style lang="scss">
+  .card {
+  }
+
+  .card__container {
+    display: block grid;
+    grid-template-areas:
+      "thumbnail thumbnail"
+      "portrait name"
+      "comment comment";
+  }
+
+  .card__name {
+    grid-area: name;
+  }
+
+  .card__comment {
+    grid-area: comment;
+  }
+
+  .card__thumbnail {
+    grid-area: thumbnail;
+
+    :global(img) {
+      object-fit: cover;
+      aspect-ratio: calc(180 / 200);
+    }
+  }
+
+  .card__portrait {
+    grid-area: portrait;
+
+    :global(img) {
+      object-fit: cover;
+    }
+  }
+</style>
