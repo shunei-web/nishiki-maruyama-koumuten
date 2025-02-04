@@ -25,7 +25,6 @@ const { title, thumbnail, description } = Astro.props;
 
 <style lang="scss" is:global>
   .card {
-    container-type: inline-size;
   }
 
   .card__container {
@@ -36,6 +35,14 @@ const { title, thumbnail, description } = Astro.props;
     grid-template-columns: 110fr 265fr;
     column-gap: calc(5 * var(--rem-ratio));
     row-gap: calc(5 * var(--rem-ratio));
+
+    @container (min-width: 600px) {
+      grid-template-areas:
+        "title"
+        "thumbnail"
+        "description";
+      grid-template-columns: revert;
+    }
   }
 
   .card__title {
@@ -55,6 +62,10 @@ const { title, thumbnail, description } = Astro.props;
     img {
       object-fit: cover;
       aspect-ratio: calc(110 / 100);
+
+      @container (min-width: 600px) {
+        aspect-ratio: calc(((1000 - (10 * 2)) / 3) / 203);
+      }
     }
   }
 

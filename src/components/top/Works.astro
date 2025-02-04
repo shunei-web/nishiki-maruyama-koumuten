@@ -36,6 +36,7 @@ const allPosts = await Astro.glob("../../pages/works/*.md");
   }
 
   .container {
+    container-type: inline-size;
   }
 
   .heading {
@@ -43,5 +44,13 @@ const allPosts = await Astro.glob("../../pages/works/*.md");
 
   .content {
     margin-block-start: calc(10 * var(--rem-ratio));
+    display: block grid;
+    row-gap: calc(10 * var(--rem-ratio));
+
+    @container (min-width: 600px) {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: calc(10 * var(--rem-ratio));
+      padding-block: calc(10 * var(--rem-ratio)) calc(20 * var(--rem-ratio));
+    }
   }
 </style>
