@@ -42,6 +42,15 @@ const { name, comment, thumbnail, portrait } = Astro.props;
       "thumbnail"
       "block"
       "comment";
+
+    @container (min-width: 600px) {
+      grid-template-areas:
+        "thumbnail thumbnail"
+        "comment block";
+      grid-template-columns: 300fr 100fr;
+      column-gap: calc(10 * var(--rem-ratio));
+      justify-content: space-between;
+    }
   }
 
   .card__block {
@@ -53,6 +62,18 @@ const { name, comment, thumbnail, portrait } = Astro.props;
     align-items: center;
     justify-items: center;
     margin-block-start: calc(5 * var(--rem-ratio));
+
+    @container (min-width: 600px) {
+      grid-template-areas:
+        "portrait"
+        "name";
+      grid-template-columns: revert;
+      margin-inline-start: auto;
+      max-inline-size: calc(100 * var(--rem-ratio));
+      align-items: revert;
+      align-content: start;
+      row-gap: calc(5 * var(--rem-ratio));
+    }
   }
 
   .card__name {
@@ -60,6 +81,7 @@ const { name, comment, thumbnail, portrait } = Astro.props;
     font-size: var(--font-size-15-20);
     font-weight: 400;
     line-height: var(--line-height-15-18);
+    word-break: keep-all;
 
     @include global.mq() {
       line-height: var(--line-height-20-24);
@@ -83,6 +105,12 @@ const { name, comment, thumbnail, portrait } = Astro.props;
     @include global.mq() {
       line-height: var(--line-height-20-24);
     }
+
+    @container (min-width: 600px) {
+      max-inline-size: calc(300 * var(--rem-ratio));
+      min-block-size: calc(175 * var(--rem-ratio));
+      margin-block-start: calc(5 * var(--rem-ratio));
+    }
   }
 
   .card__thumbnail {
@@ -91,6 +119,10 @@ const { name, comment, thumbnail, portrait } = Astro.props;
     :global(img) {
       object-fit: cover;
       aspect-ratio: calc(180 / 200);
+
+      @container (min-width: 600px) {
+        aspect-ratio: calc(480 / 300);
+      }
     }
   }
 </style>

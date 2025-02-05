@@ -74,10 +74,19 @@ const posts = await Promise.all(
     display: block grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: calc(20 * var(--rem-ratio));
+
+    @container (min-width: 600px) {
+      column-gap: calc(40 * var(--rem-ratio));
+      padding-block-end: calc(20 * var(--rem-ratio));
+    }
   }
 
   .button {
     margin-block-start: calc(10 * var(--rem-ratio));
     text-align: center;
+
+    @container (min-width: 600px) {
+      margin-block-start: calc(20 * var(--rem-ratio));
+    }
   }
 </style>
