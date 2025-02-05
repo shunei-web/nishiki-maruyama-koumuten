@@ -8,7 +8,13 @@ interface Props {
     alt: string;
   };
   text: string;
-  access: string;
+  access: {
+    companyName: string;
+    postalCode: string;
+    address: string;
+    phoneNumber: string;
+    faxNumber: string;
+  };
   buttonText: string;
 }
 
@@ -24,7 +30,15 @@ const { image, text, access, buttonText } = Astro.props;
       <p class="media__text">{text}</p>
     </div>
     <div class="media__secondary-block">
-      <p class="media__access">{access}</p>
+      <div class="media__access">
+        <p class="media__company-name">{access.companyName}</p>
+        <p class="media__postal-code">{access.postalCode}</p>
+        <p class="media__address">{access.address}</p>
+        <address class="media__contact">
+          <a href="tel:+" class="media__phone-number">{access.phoneNumber}</a>
+          <span class="media__fax-number">{access.faxNumber}</span>
+        </address>
+      </div>
       <div class="media__button">
         <Button text={buttonText} />
       </div>
@@ -37,23 +51,73 @@ const { image, text, access, buttonText } = Astro.props;
   }
 
   .media__container {
+    display: block grid;
+    grid-template-areas:
+      "primary-block access"
+      "button button";
+    grid-template-columns: 144fr 226fr;
+    column-gap: calc(10 * var(--rem-ratio));
   }
 
   .media__primary-block {
+    grid-area: primary-block;
   }
 
   .media__image {
+    :global(img) {
+      object-fit: cover;
+      aspect-ratio: 1;
+    }
   }
 
   .media__text {
+    font-size: var(--font-size-12-20);
+    line-height: var(--line-height-12-15);
+
+    @include global.mq() {
+      line-height: var(--line-height-20-24);
+    }
   }
 
   .media__secondary-block {
+    display: contents;
+    grid-area: secondary-block;
   }
 
   .media__access {
+    grid-area: access;
+    text-align: center;
+    font-size: var(--font-size-20-30);
+    line-height: var(--line-height-20-24);
+
+    @include global.mq() {
+      line-height: var(--line-height-30-36);
+    }
+  }
+
+  .media__company-name {
+  }
+
+  .media__postal-code {
+    margin-block-start: 1lh;
+  }
+
+  .media__address {
+  }
+
+  .media__contact {
+    margin-block-start: 1lh;
+  }
+
+  .media__phone-number {
+    display: block flow;
+  }
+
+  .media__fax-number {
+    display: block flow;
   }
 
   .media__button {
+    grid-area: button;
   }
 </style>
