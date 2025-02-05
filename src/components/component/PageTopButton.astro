@@ -1,0 +1,31 @@
+---
+import PictureFrame from "../../components/component/PictureFrame.astro";
+
+const icon = { url: "/src/assets/pagetop.svg", alt: "ページトップに戻る" };
+---
+
+<a
+  href="#top"
+  class="pagetop"
+  data-scroll-target="pagetop"
+  data-scroll-animation="fade-in-activate"
+>
+  <span class="pagetop__icon">
+    <PictureFrame url={icon.url} alt={icon.alt} />
+  </span>
+</a>
+
+<style lang="scss">
+  .pagetop {
+    display: block flow;
+    padding-block: calc(25 * var(--rem-ratio));
+    padding-inline: calc(22 * var(--rem-ratio));
+  }
+
+  .pagetop__icon {
+    inline-size: calc(50 * var(--rem-ratio));
+
+    :global(img) {
+    }
+  }
+</style>

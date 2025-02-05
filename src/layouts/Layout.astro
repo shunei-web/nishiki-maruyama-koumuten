@@ -1,5 +1,6 @@
 ---
 import "../styles/sass/style.scss";
+import PageTopButton from "../components/component/PageTopButton.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -32,7 +33,17 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
+
+    <div class="pagetop">
+      <PageTopButton />
+    </div>
   </body>
 </html>
 
-<style></style>
+<style lang="scss">
+  .pagetop {
+    position: fixed;
+    inset-inline-end: calc(25 * var(--rem-ratio));
+    inset-block-end: 0;
+  }
+</style>
