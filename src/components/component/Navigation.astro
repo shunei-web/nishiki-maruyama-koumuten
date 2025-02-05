@@ -1,0 +1,53 @@
+---
+interface Props {
+  menus: {
+    name: string;
+    url: string;
+  }[];
+}
+
+const { menus } = Astro.props;
+---
+
+<nav id="js-drawer" class="navigation">
+  {
+    menus.map((item) => (
+      <a href={`${item.url}`} class="navigation__link">
+        {item.name}
+      </a>
+    ))
+  }
+</nav>
+
+<label for="js-hamburger" class="navigation__overlay"></label>
+
+<style lang="scss">
+  .navigation {
+    display: none;
+
+    @include global.mq() {
+      display: block flex;
+      column-gap: calc(40 * var(--rem-ratio));
+    }
+
+    &.is-active {
+      display: block grid;
+      row-gap: calc(41 * var(--rem-ratio));
+      padding-block: calc(10 * var(--rem-ratio)) calc(40 * var(--rem-ratio));
+      background: var(--color-white);
+    }
+  }
+
+  .navigation__link {
+    text-align: center;
+    font-size: var(--font-size-30);
+    line-height: var(--line-height-30-36);
+
+    @include global.mq() {
+      font-size: var(--font-size-20-30-bp);
+    }
+  }
+
+  .navigation__overlay {
+  }
+</style>

@@ -4,6 +4,20 @@ import Navigation from "../components/component/Navigation.astro";
 import Hamburger from "../components/component/Hamburger.astro";
 
 const logo = { url: "/src/assets/logo.svg", alt: "丸山工務店" };
+const menus = [
+  {
+    name: "ホーム",
+    url: "#",
+  },
+  {
+    name: "施工事例",
+    url: "#",
+  },
+  {
+    name: "お問い合わせ",
+    url: "#",
+  },
+];
 ---
 
 <header class="l-section">
@@ -14,7 +28,7 @@ const logo = { url: "/src/assets/logo.svg", alt: "丸山工務店" };
       </div>
       <div class="content">
         <div class="navigation">
-          <Navigation />
+          <Navigation menus={menus} />
         </div>
         <div class="hamburger">
           <Hamburger />
@@ -42,5 +56,15 @@ const logo = { url: "/src/assets/logo.svg", alt: "丸山工務店" };
   }
 
   .content {
+  }
+
+  .navigation {
+    position: absolute;
+    inset-block-start: calc(100 * var(--rem-ratio));
+    inset-inline: 0;
+    z-index: var(--z-navigation);
+  }
+
+  .hamburger {
   }
 </style>

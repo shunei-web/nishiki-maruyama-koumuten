@@ -24,10 +24,17 @@
 
   // 文字サイズ
   --font-size-base: calc(15 * var(--rem-ratio));
+  --font-size-30: calc(30 * var(--rem-ratio));
 
   @include global.clamp(--font-size-12-20, 12, 20);
   @include global.clamp(--font-size-15-20, 15, 20);
   @include global.clamp(--font-size-20-30, 20, 30);
+  @include global.clamp(
+    --font-size-20-30-bp,
+    20,
+    30,
+    var(--viewport-breakpoint)
+  );
   @include global.clamp(--font-size-30-50, 30, 50);
 
   // 行ボックスの高さ
