@@ -1,0 +1,38 @@
+---
+interface Props {
+  menus: {
+    name: string;
+    url: string;
+  }[];
+}
+
+const { menus } = Astro.props;
+---
+
+<nav id="js-drawer" class="footer-navigation">
+  {
+    menus.map((item) => (
+      <a href={`${item.url}`} class="footer-navigation__link">
+        {item.name}
+      </a>
+    ))
+  }
+</nav>
+
+<style lang="scss">
+  .footer-navigation {
+    display: none;
+
+    @include global.mq() {
+      display: block flex;
+      column-gap: calc(40 * var(--rem-ratio));
+    }
+  }
+
+  .footer-navigation__link {
+    text-align: center;
+    font-size: var(--font-size-20-30-bp);
+    line-height: var(--line-height-30-36);
+    padding-block: calc((80 - 36) / 2 * var(--rem-ratio));
+  }
+</style>

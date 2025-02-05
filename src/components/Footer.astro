@@ -1,0 +1,62 @@
+---
+import PictureFrame from "../components/component/PictureFrame.astro";
+import FooterNavigation from "../components/component/FooterNavigation.astro";
+
+const logo = { url: "/src/assets/logo.svg", alt: "ロゴ：丸山工務店" };
+const menus = [
+  {
+    name: "ホーム",
+    url: "#",
+  },
+  {
+    name: "施工事例",
+    url: "#",
+  },
+  {
+    name: "お問い合わせ",
+    url: "#",
+  },
+];
+---
+
+<header class="l-section">
+  <div class="inner l-section__inner">
+    <div class="container l-section__container">
+      <div class="logo">
+        <PictureFrame url={logo.url} alt={logo.alt} />
+      </div>
+      <div class="content">
+        <div class="navigation">
+          <FooterNavigation menus={menus} />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+  }
+
+  .inner {
+  }
+
+  .container {
+    container-type: inline-size;
+    display: block flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    inline-size: calc(76 * var(--rem-ratio));
+  }
+
+  .content {
+  }
+
+  .navigation {
+    @include global.mq() {
+      display: block flow;
+    }
+  }
+</style>
