@@ -57,6 +57,11 @@ const { image, text, access, buttonText } = Astro.props;
       "button button";
     grid-template-columns: 144fr 226fr;
     column-gap: calc(10 * var(--rem-ratio));
+
+    @container (min-width: 600px) {
+      grid-template-areas: "primary-block secondary-block";
+      grid-template-columns: 460fr 530fr;
+    }
   }
 
   .media__primary-block {
@@ -65,9 +70,17 @@ const { image, text, access, buttonText } = Astro.props;
 
   .media__image {
     max-inline-size: calc(120 / 144 * 100%);
+
+    @container (min-width: 600px) {
+      max-inline-size: revert;
+    }
     :global(img) {
       object-fit: cover;
       aspect-ratio: 1;
+
+      @container (min-width: 600px) {
+        aspect-ratio: revert;
+      }
     }
   }
 
@@ -75,15 +88,24 @@ const { image, text, access, buttonText } = Astro.props;
     font-size: var(--font-size-12-20);
     line-height: var(--line-height-12-15);
     word-break: keep-all;
+    margin-block-start: calc(10 * var(--rem-ratio));
 
     @include global.mq() {
       line-height: var(--line-height-20-24);
+    }
+
+    @container (min-width: 600px) {
+      margin-block-start: calc(18 * var(--rem-ratio));
     }
   }
 
   .media__secondary-block {
     display: contents;
     grid-area: secondary-block;
+
+    @container (min-width: 600px) {
+      display: block flow;
+    }
   }
 
   .media__access {
@@ -123,5 +145,9 @@ const { image, text, access, buttonText } = Astro.props;
     grid-area: button;
     margin-block-start: calc(10 * var(--rem-ratio));
     text-align: center;
+
+    @container (min-width: 600px) {
+      margin-block-start: calc(36 * var(--rem-ratio));
+    }
   }
 </style>
