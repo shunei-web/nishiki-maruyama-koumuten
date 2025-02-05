@@ -1,6 +1,6 @@
 ---
 import PictureFrame from "../components/component/PictureFrame.astro";
-import Navigation from "../components/component/Navigation.astro";
+import DrawerNavigation from "../components/component/DrawerNavigation.astro";
 import Hamburger from "../components/component/Hamburger.astro";
 
 const logo = { url: "/src/assets/logo.svg", alt: "丸山工務店" };
@@ -23,12 +23,12 @@ const menus = [
 <header class="l-section">
   <div class="inner l-section__inner">
     <div class="container l-section__container">
-      <div class="logo">
+      <h1 class="logo">
         <PictureFrame url={logo.url} alt={logo.alt} />
-      </div>
+      </h1>
       <div class="content">
         <div class="navigation">
-          <Navigation menus={menus} />
+          <DrawerNavigation menus={menus} />
         </div>
         <div class="hamburger">
           <Hamburger />
@@ -63,8 +63,17 @@ const menus = [
     inset-block-start: calc(100 * var(--rem-ratio));
     inset-inline: 0;
     z-index: var(--z-navigation);
+    display: none;
+
+    @include global.mq() {
+      position: revert;
+      display: block flow;
+    }
   }
 
   .hamburger {
+    @include global.mq() {
+      display: none;
+    }
   }
 </style>

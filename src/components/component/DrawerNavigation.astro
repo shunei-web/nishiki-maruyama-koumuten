@@ -9,22 +9,20 @@ interface Props {
 const { menus } = Astro.props;
 ---
 
-<nav id="js-drawer" class="navigation">
+<nav id="js-drawer" class="drawer-navigation">
   {
     menus.map((item) => (
-      <a href={`${item.url}`} class="navigation__link">
+      <a href={`${item.url}`} class="drawer-navigation__link">
         {item.name}
       </a>
     ))
   }
 </nav>
 
-<label for="js-hamburger" class="navigation__overlay"></label>
+<label for="js-hamburger" class="drawer-navigation__overlay"></label>
 
 <style lang="scss">
-  .navigation {
-    display: none;
-
+  .drawer-navigation {
     @include global.mq() {
       display: block flex;
       column-gap: calc(40 * var(--rem-ratio));
@@ -38,16 +36,17 @@ const { menus } = Astro.props;
     }
   }
 
-  .navigation__link {
+  .drawer-navigation__link {
     text-align: center;
     font-size: var(--font-size-30);
     line-height: var(--line-height-30-36);
 
     @include global.mq() {
       font-size: var(--font-size-20-30-bp);
+      padding-block: calc((80 - 36) / 2 * var(--rem-ratio));
     }
   }
 
-  .navigation__overlay {
+  .drawer-navigation__overlay {
   }
 </style>
