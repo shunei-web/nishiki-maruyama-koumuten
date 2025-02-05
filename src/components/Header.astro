@@ -1,0 +1,46 @@
+---
+import PictureFrame from "../components/component/PictureFrame.astro";
+import Navigation from "../components/component/Navigation.astro";
+import Hamburger from "../components/component/Hamburger.astro";
+
+const logo = { url: "/src/assets/logo.svg", alt: "丸山工務店" };
+---
+
+<header class="l-section">
+  <div class="inner l-section__inner">
+    <div class="container l-section__container">
+      <div class="logo">
+        <PictureFrame url={logo.url} alt={logo.alt} />
+      </div>
+      <div class="content">
+        <div class="navigation">
+          <Navigation />
+        </div>
+        <div class="hamburger">
+          <Hamburger />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+  }
+
+  .inner {
+  }
+
+  .container {
+    container-type: inline-size;
+    display: block flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    inline-size: calc(76 * var(--rem-ratio));
+  }
+
+  .content {
+  }
+</style>
