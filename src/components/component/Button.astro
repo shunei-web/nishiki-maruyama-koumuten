@@ -1,14 +1,24 @@
 ---
-import { getImage } from "astro:assets";
-import arrowRight from "../../assets/arrow-right.svg";
-const arrowRightImage = await getImage({ src: arrowRight });
+import type { ImageMetadata } from "astro";
 
-const { text } = Astro.props;
+interface Props {
+  text: string;
+  iconUrl?: string;
+}
+
+const { text, iconUrl = "/src/assets/arrow-right.svg" } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/**/*");
+if (!images[iconUrl]) {
+  throw new Error(`"${iconUrl}" does not exist in glob: "src/assets/**/*"`);
+}
+
+const icon = await images[iconUrl]().then((module) => module.default);
 ---
 
 <a href="#">{text}</a>
 
-<style lang="scss" define:vars={{ arrowRight: `url(${arrowRightImage.src})` }}>
+<style lang="scss" define:vars={{ icon: `url(${icon.src})` }}>
   a {
     @include global.clamp(--_padding-block, 9, 7);
 
@@ -29,7 +39,7 @@ const { text } = Astro.props;
 
     &::after {
       content: "";
-      background-image: var(--arrowRight);
+      background-image: var(--icon);
       inline-size: calc(32 * var(--rem-ratio));
       aspect-ratio: 1;
     }
