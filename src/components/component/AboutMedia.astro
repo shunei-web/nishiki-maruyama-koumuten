@@ -1,19 +1,24 @@
 ---
-const { mediaImage, imageAlt, text, buttonText } = Astro.props;
-
-import { Picture } from "astro:assets";
-
 import Button from "../../components/component/Button.astro";
+import PictureFrame from "../../components/component/PictureFrame.astro";
+
+interface Props {
+  image: {
+    url: string;
+    alt: string;
+  };
+  text: string;
+  buttonText: string;
+}
+
+const { image, text, buttonText } = Astro.props;
 ---
 
 <div class="media">
   <div class="media__container">
-    <Picture
-      src={mediaImage}
-      formats={["avif", "webp"]}
-      alt={imageAlt}
-      pictureAttributes={{ class: "media__image" }}
-    />
+    <div class="media__image">
+      <PictureFrame url={image.url} alt={image.alt} />
+    </div>
     <div class="media__content">
       <p class="media__text">{text}</p>
       <div class="media__button">
@@ -50,7 +55,7 @@ import Button from "../../components/component/Button.astro";
   .media__image {
     grid-area: image;
 
-    img {
+    :global(img) {
       object-fit: cover;
       block-size: 100%;
     }
