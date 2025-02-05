@@ -1,0 +1,59 @@
+---
+import Button from "../../components/component/AfterIconButton.astro";
+import PictureFrame from "../../components/component/PictureFrame.astro";
+
+interface Props {
+  image: {
+    url: string;
+    alt: string;
+  };
+  text: string;
+  access: string;
+  buttonText: string;
+}
+
+const { image, text, access, buttonText } = Astro.props;
+---
+
+<div class="media">
+  <div class="media__container">
+    <div class="media__primary-block">
+      <div class="media__image">
+        <PictureFrame url={image.url} alt={image.alt} />
+      </div>
+      <p class="media__text">{text}</p>
+    </div>
+    <div class="media__secondary-block">
+      <p class="media__access">{access}</p>
+      <div class="media__button">
+        <Button text={buttonText} />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .media {
+  }
+
+  .media__container {
+  }
+
+  .media__primary-block {
+  }
+
+  .media__image {
+  }
+
+  .media__text {
+  }
+
+  .media__secondary-block {
+  }
+
+  .media__access {
+  }
+
+  .media__button {
+  }
+</style>

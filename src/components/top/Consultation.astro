@@ -1,0 +1,53 @@
+---
+import SectionHeading from "../../components/component/SectionHeading.astro";
+import ConsultationMedia from "../../components/component/ConsultationMedia.astro";
+
+const title = "個別相談会";
+const image = { url: "/src/assets/consultation@2x.png", alt: "相談のイメージ" };
+const text =
+  "初めての方へおすすすめ\
+お気軽にご相談ください。";
+const access =
+  "株式会社 丸山工務店\
+ 〒343-****\
+埼玉県*********\
+ TEL：048-****-****\
+FAX：048-****-****";
+const buttonText = "お問い合わせ";
+---
+
+<section class="l-section">
+  <div class="inner l-section__inner">
+    <div class="container l-section__container">
+      <div class="heading">
+        <SectionHeading title={title} />
+      </div>
+      <div class="content">
+        <ConsultationMedia
+          image={image}
+          text={text}
+          access={access}
+          buttonText={buttonText}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  section {
+  }
+
+  .inner {
+  }
+
+  .container {
+    container-type: inline-size;
+  }
+
+  .heading {
+  }
+
+  .content {
+  }
+</style>
