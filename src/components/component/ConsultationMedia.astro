@@ -64,6 +64,7 @@ const { image, text, access, buttonText } = Astro.props;
   }
 
   .media__image {
+    max-inline-size: calc(120 / 144 * 100%);
     :global(img) {
       object-fit: cover;
       aspect-ratio: 1;
@@ -73,6 +74,7 @@ const { image, text, access, buttonText } = Astro.props;
   .media__text {
     font-size: var(--font-size-12-20);
     line-height: var(--line-height-12-15);
+    word-break: keep-all;
 
     @include global.mq() {
       line-height: var(--line-height-20-24);
@@ -119,5 +121,7 @@ const { image, text, access, buttonText } = Astro.props;
 
   .media__button {
     grid-area: button;
+    margin-block-start: calc(10 * var(--rem-ratio));
+    text-align: center;
   }
 </style>
