@@ -60,15 +60,9 @@ const menus = [
 
   .navigation {
     position: absolute;
-    inset-block-start: calc(100 * var(--rem-ratio));
+    inset-block-start: calc(var(--header-block-size) * var(--rem-ratio));
     inset-inline: 0;
     z-index: var(--z-navigation);
-    display: none;
-
-    @include global.mq() {
-      position: revert;
-      display: block flow;
-    }
   }
 
   .hamburger {

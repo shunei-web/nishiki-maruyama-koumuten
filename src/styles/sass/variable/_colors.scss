@@ -14,6 +14,9 @@
   --color-ground: var(--color-ground-light);
   --color-ground-light: #fff;
 
+  // オーバーレイ
+  --color-overlay: rgb(from #000 r g b / 60%);
+
   // ボタン
   --color-button-text: #fff;
   --color-button-ground: var(--color-main);

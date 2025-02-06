@@ -19,4 +19,7 @@
   --fluid-ratio-min: calc(1 / var(--viewport-min) * 100dvi);
   --fluid-ratio-breakpoint: calc(1 / var(--viewport-breakpoint) * 100dvi);
   --fluid-ratio-max: calc(1 / var(--viewport-max) * 100dvi);
+
+  // ヘッダー
+  --header-block-size: 100;
 }

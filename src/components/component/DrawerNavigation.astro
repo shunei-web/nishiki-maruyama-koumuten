@@ -10,29 +10,48 @@ const { menus } = Astro.props;
 ---
 
 <nav id="js-drawer" class="drawer-navigation">
-  {
-    menus.map((item) => (
-      <a href={`${item.url}`} class="drawer-navigation__link">
-        {item.name}
-      </a>
-    ))
-  }
+  <div class="drawer-navigation__container">
+    <div class="drawer-navigation__menu">
+      {
+        menus.map((item) => (
+          <a href={`${item.url}`} class="drawer-navigation__link">
+            {item.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </nav>
 
 <label for="js-hamburger" class="drawer-navigation__overlay"></label>
 
 <style lang="scss">
   .drawer-navigation {
+    visibility: hidden;
+    opacity: 0;
+
+    &.is-active {
+      visibility: visible;
+      opacity: 1;
+      background: var(--color-white);
+    }
+  }
+
+  .drawer-navigation__container {
+    .drawer-navigation.is-active & {
+      padding-block: calc(10 * var(--rem-ratio)) calc(40 * var(--rem-ratio));
+    }
+  }
+
+  .drawer-navigation__menu {
     @include global.mq() {
       display: block flex;
       column-gap: calc(40 * var(--rem-ratio));
     }
 
-    &.is-active {
+    .drawer-navigation.is-active & {
       display: block grid;
       row-gap: calc(41 * var(--rem-ratio));
-      padding-block: calc(10 * var(--rem-ratio)) calc(40 * var(--rem-ratio));
-      background: var(--color-white);
     }
   }
 
@@ -48,5 +67,21 @@ const { menus } = Astro.props;
   }
 
   .drawer-navigation__overlay {
+    position: fixed;
+    inset-block: calc(var(--header-block-size) * var(--rem-ratio)) 0;
+    inset-inline: 0;
+    visibility: hidden;
+    background: var(--color-overlay);
+    opacity: 0;
+    z-index: var(--z-background);
+
+    transition-timing-function: var(--ease-out-expo);
+    transition-duration: 0.5s;
+    transition-property: visibility, opacity;
+
+    #js-drawer.is-active ~ & {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 </style>

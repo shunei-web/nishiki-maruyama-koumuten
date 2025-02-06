@@ -2,13 +2,7 @@
 
 ---
 
-<button
-  type="button"
-  class="hamburger"
-  id="js-hamburger"
-  data-scroll-target="hamburger"
-  data-scroll-animation="fade-in-activate"
->
+<button type="button" class="hamburger" id="js-hamburger">
   <span class="hamburger__icon">
     <span></span>
     <span></span>
@@ -92,3 +86,30 @@
     }
   }
 </style>
+
+<script>
+  import ToggleButtonController from "../../ts/toggleButtonController";
+  import DrawerMenuController from "../../ts/drawerMenuController";
+
+  try {
+    const hamburgerButton = new ToggleButtonController(
+      "#js-hamburger",
+      "js-drawer",
+    );
+    const drawerMenu = new DrawerMenuController("#js-drawer");
+    console.log(drawerMenu);
+
+    const handleStateChange = (isActive: boolean): void => {
+      hamburgerButton.updateState(isActive);
+      drawerMenu.updateState(isActive);
+    };
+
+    hamburgerButton.addStateChangeListener(handleStateChange);
+    drawerMenu.addStateChangeListener(handleStateChange);
+
+    hamburgerButton.initialize();
+    drawerMenu.initialize();
+  } catch (error) {
+    console.error("初期化エラー:", error);
+  }
+</script>
