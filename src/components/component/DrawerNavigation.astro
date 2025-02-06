@@ -44,7 +44,7 @@ const { menus } = Astro.props;
 
   .drawer-navigation__container {
     .drawer-navigation.is-active & {
-      padding-block: calc(10 * var(--rem-ratio)) calc(40 * var(--rem-ratio));
+      padding-block: calc(10 * var(--rem-ratio)) calc(20 * var(--rem-ratio));
     }
   }
 
@@ -56,7 +56,7 @@ const { menus } = Astro.props;
 
     .drawer-navigation.is-active & {
       display: block grid;
-      row-gap: calc(41 * var(--rem-ratio));
+      row-gap: calc((41 - 10) * var(--rem-ratio));
     }
   }
 
@@ -64,6 +64,7 @@ const { menus } = Astro.props;
     text-align: center;
     font-size: var(--font-size-30);
     line-height: var(--line-height-30-36);
+    padding-block: calc(10 * var(--rem-ratio));
 
     @include global.mq() {
       font-size: var(--font-size-20-30-bp);
