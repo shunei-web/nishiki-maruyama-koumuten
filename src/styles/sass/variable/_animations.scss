@@ -1,0 +1,15 @@
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  /* ======================================================
+  // フェードイン、要素の活性化
+  // ------------------------------------------------------ */
+  [data-scroll-animation="fade-in-activate"] {
+    transition-timing-function: ease;
+    transition-duration: 1s;
+    transition-property: visibility, opacity;
+
+    &:not([data-animated]) {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+}

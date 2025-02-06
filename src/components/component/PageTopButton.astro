@@ -29,3 +29,11 @@ const icon = { url: "/src/assets/pagetop.svg", alt: "ページトップに戻る
     }
   }
 </style>
+
+<script>
+  import ScrollAnimator from "../../ts/scrollAnimator";
+
+  const pagetop = new ScrollAnimator(300, '[data-scroll-target="pagetop"]', {
+    reverse: true,
+  });
+</script>
