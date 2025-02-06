@@ -57,6 +57,8 @@ const { menus } = Astro.props;
     .drawer-navigation.is-active & {
       display: block grid;
       row-gap: calc((41 - 10) * var(--rem-ratio));
+      max-inline-size: calc(377 * var(--rem-ratio));
+      margin-inline: auto;
     }
   }
 
