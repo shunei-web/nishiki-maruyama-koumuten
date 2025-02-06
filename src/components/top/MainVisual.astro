@@ -86,7 +86,10 @@ const images: Image[] = [
     position: relative;
     z-index: var(--z-background);
     background: var(--color-ground-gray);
-    block-size: calc(100dvb - var(--header-block-size) * var(--rem-ratio));
+    block-size: max(
+      calc(434 * var(--rem-ratio)),
+      calc(100dvb - var(--header-block-size) * var(--rem-ratio))
+    );
   }
 
   .swiper {
