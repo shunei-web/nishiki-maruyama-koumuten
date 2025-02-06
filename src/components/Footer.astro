@@ -36,6 +36,9 @@ const menus = [
 
 <style lang="scss">
   .section {
+    @include global.mq() {
+      padding-block: calc(10 * var(--rem-ratio));
+    }
   }
 
   .inner {
@@ -45,6 +48,10 @@ const menus = [
     container-type: inline-size;
     display: block flex;
     justify-content: space-between;
+
+    @include global.mq() {
+      padding-inline-start: calc(10 * var(--rem-ratio));
+    }
   }
 
   .logo {
