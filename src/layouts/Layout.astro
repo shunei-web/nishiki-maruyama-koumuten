@@ -1,5 +1,7 @@
 ---
 import "../styles/sass/style.scss";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 import PageTopButton from "../components/component/PageTopButton.astro";
 
 const { title, description } = Astro.props;
@@ -32,7 +34,11 @@ const { title, description } = Astro.props;
     />
   </head>
   <body>
+    <Header />
+
     <slot />
+
+    <Footer />
 
     <div class="pagetop">
       <PageTopButton />
