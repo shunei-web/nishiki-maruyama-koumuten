@@ -63,6 +63,10 @@ const menus = [
     inset-block-start: calc(var(--header-block-size) * var(--rem-ratio));
     inset-inline: 0;
     z-index: var(--z-navigation);
+
+    @include global.mq() {
+      position: revert;
+    }
   }
 
   .hamburger {

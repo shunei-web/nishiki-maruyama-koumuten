@@ -30,6 +30,11 @@ const { menus } = Astro.props;
     visibility: hidden;
     opacity: 0;
 
+    @include global.mq() {
+      visibility: visible;
+      opacity: 1;
+    }
+
     &.is-active {
       visibility: visible;
       opacity: 1;
