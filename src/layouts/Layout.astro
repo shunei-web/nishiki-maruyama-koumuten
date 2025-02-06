@@ -47,3 +47,12 @@ const { title, description } = Astro.props;
     inset-block-end: 0;
   }
 </style>
+
+<script>
+  import ViewportManager from "../ts/viewportManager";
+
+  const minWidth: number = parseInt(
+    window.getComputedStyle(document.body).getPropertyValue("--viewport-min"),
+  );
+  const viewportManager = new ViewportManager(minWidth);
+</script>
