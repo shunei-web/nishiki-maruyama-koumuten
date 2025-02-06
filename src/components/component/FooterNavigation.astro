@@ -9,7 +9,7 @@ interface Props {
 const { menus } = Astro.props;
 ---
 
-<nav id="js-drawer" class="footer-navigation">
+<nav class="footer-navigation">
   {
     menus.map((item) => (
       <a href={`${item.url}`} class="footer-navigation__link">
