@@ -1,4 +1,5 @@
 ---
+import Section from "../../layouts/Section.astro";
 import SectionHeading from "../../components/component/SectionHeading.astro";
 import WorksCard from "../../components/component/WorksCard.astro";
 
@@ -24,38 +25,24 @@ const posts = await Promise.all(
 );
 ---
 
-<section class="section l-section">
-  <div class="inner l-section__inner">
-    <div class="container l-section__container">
-      <div class="heading">
-        <SectionHeading title={title} />
-      </div>
-      <div class="content">
-        {
-          posts.map((post) => (
-            <WorksCard
-              title={post.frontmatter.title}
-              thumbnail={post.frontmatter.thumbnail}
-              description={post.frontmatter.description}
-            />
-          ))
-        }
-      </div>
-    </div>
+<Section>
+  <div class="heading">
+    <SectionHeading title={title} />
   </div>
-</section>
+  <div class="content">
+    {
+      posts.map((post) => (
+        <WorksCard
+          title={post.frontmatter.title}
+          thumbnail={post.frontmatter.thumbnail}
+          description={post.frontmatter.description}
+        />
+      ))
+    }
+  </div>
+</Section>
 
 <style lang="scss">
-  .section {
-  }
-
-  .inner {
-  }
-
-  .container {
-    container-type: inline-size;
-  }
-
   .heading {
   }
 

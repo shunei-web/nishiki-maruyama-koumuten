@@ -13,7 +13,7 @@ const images: Image[] = [
 ];
 ---
 
-<div class="section l-section">
+<div class="section">
   <div class="inner">
     <div class="content">
       <hgroup class="heading">
@@ -46,6 +46,9 @@ const images: Image[] = [
 
 <style lang="scss">
   .section {
+    position: relative;
+    margin-block-start: calc(10 * var(--rem-ratio));
+
     @include global.mq() {
       padding-block: calc(10 * var(--rem-ratio));
       background: var(--color-ground-gray);

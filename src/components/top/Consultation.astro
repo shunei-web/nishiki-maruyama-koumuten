@@ -1,4 +1,5 @@
 ---
+import Section from "../../layouts/Section.astro";
 import SectionHeading from "../../components/component/SectionHeading.astro";
 import ConsultationMedia from "../../components/component/ConsultationMedia.astro";
 
@@ -15,35 +16,21 @@ const access = {
 const buttonText = "お問い合わせ";
 ---
 
-<section class="section l-section">
-  <div class="inner l-section__inner">
-    <div class="container l-section__container">
-      <div class="heading">
-        <SectionHeading title={title} />
-      </div>
-      <div class="content">
-        <ConsultationMedia
-          image={image}
-          text={text}
-          access={access}
-          buttonText={buttonText}
-        />
-      </div>
-    </div>
+<Section>
+  <div class="heading">
+    <SectionHeading title={title} />
   </div>
-</section>
+  <div class="content">
+    <ConsultationMedia
+      image={image}
+      text={text}
+      access={access}
+      buttonText={buttonText}
+    />
+  </div>
+</Section>
 
 <style lang="scss">
-  .section {
-  }
-
-  .inner {
-  }
-
-  .container {
-    container-type: inline-size;
-  }
-
   .heading {
   }
 
