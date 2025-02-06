@@ -1,28 +1,28 @@
 ---
 import PictureFrame from "../../components/component/PictureFrame.astro";
 
-const icon = { url: "/src/assets/pagetop.svg", alt: "ページトップに戻る" };
+const icon = { url: "/src/assets/page-top.svg", alt: "ページトップに戻る" };
 ---
 
 <a
   href="#top"
-  class="pagetop"
-  data-scroll-target="pagetop"
+  class="page-top"
+  data-scroll-target="page-top"
   data-scroll-animation="fade-in-activate"
 >
-  <span class="pagetop__icon">
+  <span class="page-top__icon">
     <PictureFrame url={icon.url} alt={icon.alt} />
   </span>
 </a>
 
 <style lang="scss">
-  .pagetop {
+  .page-top {
     display: block flow;
     padding-block: calc(25 * var(--rem-ratio));
     padding-inline: calc(22 * var(--rem-ratio));
   }
 
-  .pagetop__icon {
+  .page-top__icon {
     inline-size: calc(50 * var(--rem-ratio));
 
     :global(img) {
@@ -33,7 +33,7 @@ const icon = { url: "/src/assets/pagetop.svg", alt: "ページトップに戻る
 <script>
   import ScrollAnimator from "../../ts/scrollAnimator";
 
-  const pagetop = new ScrollAnimator(300, '[data-scroll-target="pagetop"]', {
+  const pageTop = new ScrollAnimator(300, '[data-scroll-target="page-top"]', {
     reverse: true,
   });
 </script>
