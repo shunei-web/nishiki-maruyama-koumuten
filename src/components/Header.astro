@@ -41,6 +41,10 @@ const menus = [
 <style lang="scss">
   .section {
     margin-block-start: revert;
+
+    @include global.mq() {
+      padding-block: calc(10 * var(--rem-ratio));
+    }
   }
 
   .inner {

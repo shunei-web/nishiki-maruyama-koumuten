@@ -13,7 +13,7 @@ const images: Image[] = [
 ];
 ---
 
-<div class="section">
+<div class="section l-section">
   <div class="inner">
     <div class="content">
       <hgroup class="heading">
@@ -46,7 +46,11 @@ const images: Image[] = [
 
 <style lang="scss">
   .section {
-    position: relative;
+    @include global.mq() {
+      padding-block: calc(10 * var(--rem-ratio));
+      background: var(--color-ground-gray);
+      z-index: var(--z-background);
+    }
   }
 
   .inner {
@@ -64,7 +68,7 @@ const images: Image[] = [
     padding: calc(10 * var(--rem-ratio));
 
     @include global.mq() {
-      inset-block-end: calc(21 / 580 * 100%);
+      inset-block-end: calc(31 / 580 * 100%);
       inset-inline-start: calc(618 / 1440 * 100%);
       padding-block: calc(22.5 * var(--rem-ratio));
       padding-inline: calc(49.5 * var(--rem-ratio));
@@ -98,11 +102,19 @@ const images: Image[] = [
   .slider {
     position: relative;
     z-index: var(--z-background);
-    background: var(--color-ground-gray);
     block-size: max(
-      calc(434 * var(--rem-ratio)),
-      calc(100dvb - var(--header-block-size) * var(--rem-ratio))
+      calc((324 - 10) * var(--rem-ratio)),
+      calc(100dvb - (var(--header-block-size) + 10) * var(--rem-ratio))
     );
+
+    @include global.mq() {
+      block-size: max(
+        calc((324 - 10) * var(--rem-ratio)),
+        calc(
+          100dvb - (var(--header-block-size) + 10 + 10 * 2) * var(--rem-ratio)
+        )
+      );
+    }
   }
 
   .swiper {
