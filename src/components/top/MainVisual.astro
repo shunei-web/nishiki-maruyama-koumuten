@@ -1,0 +1,115 @@
+---
+import PictureFrame from "../../components/component/PictureFrame.astro";
+
+const title = {
+  main: "安全安心な家づくり",
+  sub: "長く住む家だからこそ、安全と快適を追求。理想の住まいをつくります。",
+};
+
+interface Image {
+  url: string;
+  alt: string;
+}
+
+const images: Image[] = [
+  { url: "/src/assets/main-visual-1.png", alt: "メインビジュアル1" },
+  { url: "/src/assets/main-visual-2.png", alt: "メインビジュアル2" },
+  { url: "/src/assets/main-visual-3.png", alt: "メインビジュアル3" },
+];
+---
+
+<div class="section">
+  <div class="inner">
+    <div class="content">
+      <hgroup class="heading">
+        <h2 class="heading__main">{title.main}</h2>
+        <p class="heading__sub">{title.sub}</p>
+      </hgroup>
+
+      <div class="slider js-main-visual-slider">
+        <!-- Slider main container -->
+        <div class="swiper">
+          <!-- Additional required wrapper -->
+          <div class="swiper-wrapper">
+            <!-- Slides -->
+            {
+              images.map((image) => (
+                <div class="swiper-slide">
+                  <PictureFrame url={image.url} alt={image.alt} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .section {
+  }
+
+  .inner {
+  }
+
+  .content {
+  }
+
+  .heading {
+  }
+
+  .heading__main {
+  }
+
+  .heading__sub {
+  }
+
+  .slider {
+  }
+
+  .swiper {
+  }
+
+  .swiper-wrapper {
+  }
+
+  .swiper-slide {
+  }
+</style>
+
+<script>
+  import Swiper from "swiper/bundle";
+  import type { SwiperOptions } from "swiper/types";
+  import "swiper/css/bundle";
+
+  const sliders = document.querySelectorAll<HTMLElement>(
+    ".js-main-visual-slider .swiper",
+  );
+
+  const initSwiper = (slider: HTMLElement): Swiper => {
+    const swiperOptions: SwiperOptions = {
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true,
+      },
+      loop: true,
+      loopAdditionalSlides: 0,
+      speed: 4000,
+      autoplay: {
+        delay: 8000,
+        disableOnInteraction: false,
+        waitForTransition: false,
+      },
+      watchSlidesProgress: true,
+      followFinger: false,
+      allowTouchMove: false,
+    };
+
+    return new Swiper(slider, swiperOptions);
+  };
+
+  sliders?.forEach((slider) => {
+    initSwiper(slider);
+  });
+</script>

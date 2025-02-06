@@ -15,6 +15,7 @@
     "markuplint": "^4.11.4",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
-    "sass": "^1.83.4"
+    "sass": "^1.83.4",
+    "swiper": "^11.2.2"
   }
 }
