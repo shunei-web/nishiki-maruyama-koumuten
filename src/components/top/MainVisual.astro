@@ -1,11 +1,6 @@
 ---
 import PictureFrame from "../../components/component/PictureFrame.astro";
 
-const title = {
-  main: "安全安心な家づくり",
-  sub: "長く住む家だからこそ、安全と快適を追求。理想の住まいをつくります。",
-};
-
 interface Image {
   url: string;
   alt: string;
@@ -22,8 +17,11 @@ const images: Image[] = [
   <div class="inner">
     <div class="content">
       <hgroup class="heading">
-        <h2 class="heading__main">{title.main}</h2>
-        <p class="heading__sub">{title.sub}</p>
+        <h2 class="heading__main">安全安心な家づくり</h2>
+        <p class="heading__sub">
+          長く住む家だからこそ、<br />安全と快適を追求。<br
+          />理想の住まいをつくります。
+        </p>
       </hgroup>
 
       <div class="slider js-main-visual-slider">
@@ -59,14 +57,26 @@ const images: Image[] = [
 
   .heading {
     position: absolute;
+    inset-block-end: calc(14 / 324 * 100%);
+    inset-inline-start: calc(118 / 450 * 100%);
     opacity: 0.9;
     background: var(--color-white);
+    padding: calc(10 * var(--rem-ratio));
+
+    @include global.mq() {
+      inset-block-end: calc(21 / 580 * 100%);
+      inset-inline-start: calc(618 / 1440 * 100%);
+      padding-block: calc(22.5 * var(--rem-ratio));
+      padding-inline: calc(49.5 * var(--rem-ratio));
+    }
   }
 
   .heading__main {
     font-size: var(--font-size-30-48);
     line-height: var(--line-height-30-36);
     font-weight: 400;
+    max-inline-size: fit-content;
+    margin-inline: auto;
 
     @include global.mq() {
       line-height: var(--line-height-48-58);
@@ -76,6 +86,9 @@ const images: Image[] = [
   .heading__sub {
     font-size: var(--font-size-20-32);
     line-height: var(--line-height-20-24);
+    margin-block-start: calc(20 * var(--rem-ratio));
+    max-inline-size: fit-content;
+    margin-inline: auto;
 
     @include global.mq() {
       line-height: var(--line-height-32-39);
