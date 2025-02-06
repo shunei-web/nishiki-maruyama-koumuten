@@ -48,6 +48,7 @@ const images: Image[] = [
 
 <style lang="scss">
   .section {
+    position: relative;
   }
 
   .inner {
@@ -57,24 +58,49 @@ const images: Image[] = [
   }
 
   .heading {
+    position: absolute;
+    opacity: 0.9;
+    background: var(--color-white);
   }
 
   .heading__main {
+    font-size: var(--font-size-30-48);
+    line-height: var(--line-height-30-36);
+    font-weight: 400;
+
+    @include global.mq() {
+      line-height: var(--line-height-48-58);
+    }
   }
 
   .heading__sub {
+    font-size: var(--font-size-20-32);
+    line-height: var(--line-height-20-24);
+
+    @include global.mq() {
+      line-height: var(--line-height-32-39);
+    }
   }
 
   .slider {
+    position: relative;
+    z-index: var(--z-background);
+    background: var(--color-ground-gray);
+    block-size: calc(100dvb - var(--header-block-size) * var(--rem-ratio));
   }
 
   .swiper {
+    block-size: 100%;
   }
 
   .swiper-wrapper {
   }
 
   .swiper-slide {
+    :global(img) {
+      object-fit: cover;
+      block-size: 100%;
+    }
   }
 </style>
 
