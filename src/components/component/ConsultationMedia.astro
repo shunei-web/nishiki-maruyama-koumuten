@@ -21,7 +21,7 @@ interface Props {
 const { image, text, access, buttonText } = Astro.props;
 ---
 
-<div class="media">
+<div class="media js-consultation-media-animation">
   <div class="media__container">
     <div class="media__primary-block">
       <div class="media__image">
@@ -151,3 +151,32 @@ const { image, text, access, buttonText } = Astro.props;
     }
   }
 </style>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils
+    .toArray<HTMLElement>(".js-consultation-media-animation")
+    .forEach((item) => {
+      gsap.fromTo(
+        item,
+        {
+          y: 20,
+          autoAlpha: 0,
+        },
+        {
+          y: 0,
+          autoAlpha: 1,
+          scrollTrigger: {
+            trigger: item,
+            toggleActions: "play none none reverse",
+            start: "top 90%",
+            // markers: true,
+          },
+        },
+      );
+    });
+</script>
