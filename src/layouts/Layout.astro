@@ -1,5 +1,6 @@
 ---
 import "../styles/sass/style.scss";
+import Loading from "../components/component/Loading.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import PageTopButton from "../components/component/PageTopButton.astro";
@@ -34,31 +35,31 @@ const { title, description } = Astro.props;
     />
   </head>
   <body>
-    <Header />
+    <Loading>
+      <Header />
+      <slot />
+      <Footer />
 
-    <slot />
-
-    <Footer />
-
-    <div class="page-top">
-      <PageTopButton />
-    </div>
+      <div class="page-top">
+        <PageTopButton />
+      </div>
+    </Loading>
   </body>
+
+  <style lang="scss">
+    .page-top {
+      position: fixed;
+      inset-inline-end: calc(25 * var(--rem-ratio));
+      inset-block-end: 0;
+    }
+  </style>
+
+  <script>
+    import ViewportManager from "../ts/viewportManager";
+
+    const minWidth: number = parseInt(
+      window.getComputedStyle(document.body).getPropertyValue("--viewport-min"),
+    );
+    const viewportManager = new ViewportManager(minWidth);
+  </script>
 </html>
-
-<style lang="scss">
-  .page-top {
-    position: fixed;
-    inset-inline-end: calc(25 * var(--rem-ratio));
-    inset-block-end: 0;
-  }
-</style>
-
-<script>
-  import ViewportManager from "../ts/viewportManager";
-
-  const minWidth: number = parseInt(
-    window.getComputedStyle(document.body).getPropertyValue("--viewport-min"),
-  );
-  const viewportManager = new ViewportManager(minWidth);
-</script>

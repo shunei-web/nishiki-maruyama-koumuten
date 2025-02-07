@@ -1,0 +1,54 @@
+---
+import PictureFrame from "../../components/component/PictureFrame.astro";
+
+const logo = { url: "/src/assets/logo.svg", alt: "丸山工務店" };
+---
+
+<div id="js-loading" class="loading">
+  <div class="loading__logo">
+    <PictureFrame url={logo.url} alt={logo.alt} />
+  </div>
+</div>
+<div id="js-global-container" class="global-container">
+  <slot />
+</div>
+
+<style lang="scss">
+  .loading {
+    background: var(--color-white);
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-loader);
+    display: grid;
+    place-items: center;
+  }
+
+  .loading__logo {
+  }
+
+  .global-container {
+  }
+</style>
+
+<script>
+  import gsap from "gsap";
+
+  const tl = gsap.timeline();
+  tl.to(".loading__logo", { autoAlpha: 0.5, duration: 0.5 })
+    .to(".loading__logo", {
+      autoAlpha: 1,
+      duration: 0.5,
+    })
+    .to(".loading__logo", { autoAlpha: 0.5, duration: 0.5 })
+    .to(".loading__logo", {
+      autoAlpha: 1,
+      duration: 0.5,
+    })
+    .to(".loading__logo", { autoAlpha: 0.5, duration: 0.5 })
+    .to(".loading__logo", {
+      autoAlpha: 1,
+      scale: 2,
+      duration: 0.5,
+    })
+    .to(".loading", { autoAlpha: 0, duration: 0.5 }, "-=0.2");
+</script>
