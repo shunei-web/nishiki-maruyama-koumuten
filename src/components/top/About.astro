@@ -10,7 +10,7 @@ const image = { url: "/src/assets/about@2x.png", alt: "丸山庄造社長の写�
 ---
 
 <Section title={title}>
-  <div class="about-media">
+  <div class="about-media js-about-media-animation">
     <AboutMedia image={image} text={text} buttonText={buttonText} />
   </div>
 </Section>
@@ -19,3 +19,32 @@ const image = { url: "/src/assets/about@2x.png", alt: "丸山庄造社長の写�
   .about-media {
   }
 </style>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils
+    .toArray<HTMLElement>(".js-about-media-animation")
+    .forEach((heading) => {
+      gsap.fromTo(
+        heading,
+        {
+          y: 20,
+          autoAlpha: 0,
+        },
+        {
+          y: 0,
+          autoAlpha: 1,
+          scrollTrigger: {
+            trigger: heading,
+            toggleActions: "play none none reverse",
+            start: "top 90%",
+            // markers: true,
+          },
+        },
+      );
+    });
+</script>
