@@ -9,7 +9,11 @@ interface Props {
 const { menus } = Astro.props;
 ---
 
-<nav id="js-drawer" class="drawer-navigation">
+<nav
+  id="js-drawer"
+  class="drawer-navigation"
+  data-drawer-animation="fade-in-activate"
+>
   <div class="drawer-navigation__container">
     <div class="drawer-navigation__menu">
       {
@@ -23,42 +27,34 @@ const { menus } = Astro.props;
   </div>
 </nav>
 
-<label for="js-hamburger" class="drawer-navigation__overlay"></label>
+<label
+  for="js-hamburger"
+  class="drawer-navigation__overlay"
+  data-overlay-animation="fade-in-activate"></label>
 
 <style lang="scss">
   .drawer-navigation {
-    visibility: hidden;
-    opacity: 0;
-
-    @include global.mq() {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    &.is-active {
-      visibility: visible;
-      opacity: 1;
-      background: var(--color-white);
-    }
   }
 
   .drawer-navigation__container {
-    .drawer-navigation.is-active & {
-      padding-block: calc(10 * var(--rem-ratio)) calc(20 * var(--rem-ratio));
+    padding-block: calc(10 * var(--rem-ratio)) calc(20 * var(--rem-ratio));
+    background-color: var(--color-white);
+
+    @include global.mq() {
+      padding-block: revert;
     }
   }
 
   .drawer-navigation__menu {
+    display: block grid;
+    row-gap: calc((41 - 10) * var(--rem-ratio));
+    max-inline-size: calc(377 * var(--rem-ratio));
+    margin-inline: auto;
+
     @include global.mq() {
       display: block flex;
       column-gap: calc(40 * var(--rem-ratio));
-    }
-
-    .drawer-navigation.is-active & {
-      display: block grid;
-      row-gap: calc((41 - 10) * var(--rem-ratio));
-      max-inline-size: calc(377 * var(--rem-ratio));
-      margin-inline: auto;
+      max-inline-size: revert;
     }
   }
 
@@ -78,18 +74,6 @@ const { menus } = Astro.props;
     position: fixed;
     inset-block: calc(var(--header-block-size) * var(--rem-ratio)) 0;
     inset-inline: 0;
-    visibility: hidden;
-    background: var(--color-overlay);
-    opacity: 0;
     z-index: var(--z-background);
-
-    transition-timing-function: var(--ease-out-expo);
-    transition-duration: 0.5s;
-    transition-property: visibility, opacity;
-
-    #js-drawer.is-active ~ & {
-      visibility: visible;
-      opacity: 1;
-    }
   }
 </style>

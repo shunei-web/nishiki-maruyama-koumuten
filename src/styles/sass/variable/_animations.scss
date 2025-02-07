@@ -12,4 +12,28 @@
       opacity: 0;
     }
   }
+
+  [data-drawer-animation="fade-in-activate"] {
+    transition-timing-function: ease;
+    transition-duration: 1s;
+    transition-property: visibility, opacity;
+
+    &:not(.is-active) {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  [data-overlay-animation="fade-in-activate"] {
+    transition-timing-function: ease;
+    transition-duration: 1s;
+    transition-property: visibility, opacity, background-color;
+    background-color: var(--color-overlay);
+
+    #js-drawer:not(.is-active) ~ & {
+      visibility: hidden;
+      opacity: 0;
+      background-color: transparent;
+    }
+  }
 }
