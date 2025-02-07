@@ -13,7 +13,7 @@ interface Props {
 const { title, thumbnail, description } = Astro.props;
 ---
 
-<article class="card">
+<article class="card js-works-card-animation">
   <div class="card__container">
     <h3 class="card__title">{title}</h3>
     <div class="card__thumbnail">
@@ -79,3 +79,32 @@ const { title, thumbnail, description } = Astro.props;
     }
   }
 </style>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils
+    .toArray<HTMLElement>(".js-works-card-animation")
+    .forEach((item) => {
+      gsap.fromTo(
+        item,
+        {
+          y: 20,
+          autoAlpha: 0,
+        },
+        {
+          y: 0,
+          autoAlpha: 1,
+          scrollTrigger: {
+            trigger: item,
+            toggleActions: "play none none reverse",
+            start: "top 90%",
+            // markers: true,
+          },
+        },
+      );
+    });
+</script>

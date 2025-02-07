@@ -25,7 +25,7 @@ const posts = await Promise.all(
 ---
 
 <Section title={title}>
-  <div class="works-card">
+  <div class="works-cards">
     {
       posts.map((post) => (
         <WorksCard
@@ -39,7 +39,7 @@ const posts = await Promise.all(
 </Section>
 
 <style lang="scss">
-  .works-card {
+  .works-cards {
     display: block grid;
     row-gap: calc(10 * var(--rem-ratio));
 
