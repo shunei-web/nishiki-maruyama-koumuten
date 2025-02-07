@@ -17,7 +17,7 @@ interface Props {
 const { name, comment, thumbnail, portrait } = Astro.props;
 ---
 
-<article class="card">
+<article class="card js-review-card-animation">
   <div class="card__container">
     <div class="card__block">
       <h3 class="card__name">{name}</h3>
@@ -126,3 +126,32 @@ const { name, comment, thumbnail, portrait } = Astro.props;
     }
   }
 </style>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils
+    .toArray<HTMLElement>(".js-review-card-animation")
+    .forEach((item) => {
+      gsap.fromTo(
+        item,
+        {
+          y: 20,
+          autoAlpha: 0,
+        },
+        {
+          y: 0,
+          autoAlpha: 1,
+          scrollTrigger: {
+            trigger: item,
+            toggleActions: "play none none reverse",
+            start: "top 90%",
+            // markers: true,
+          },
+        },
+      );
+    });
+</script>
