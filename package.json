@@ -12,6 +12,7 @@
     "astro": "^5.2.3"
   },
   "devDependencies": {
+    "gsap": "^3.12.7",
     "markuplint": "^4.11.4",
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
