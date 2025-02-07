@@ -1,6 +1,5 @@
 ---
 import Section from "../../layouts/Section.astro";
-import SectionHeading from "../../components/component/SectionHeading.astro";
 import ReviewCard from "../../components/component/ReviewCard.astro";
 import Button from "../../components/component/AfterIconButton.astro";
 
@@ -31,11 +30,8 @@ const posts = await Promise.all(
 );
 ---
 
-<Section>
-  <div class="heading">
-    <SectionHeading title={title} />
-  </div>
-  <div class="content">
+<Section title={title}>
+  <div class="review-cards">
     {
       posts.map((post) => (
         <ReviewCard
@@ -53,11 +49,7 @@ const posts = await Promise.all(
 </Section>
 
 <style lang="scss">
-  .heading {
-  }
-
-  .content {
-    margin-block-start: calc(10 * var(--rem-ratio));
+  .review-cards {
     display: block grid;
     grid-template-columns: repeat(2, 1fr);
     column-gap: calc(20 * var(--rem-ratio));

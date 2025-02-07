@@ -1,6 +1,5 @@
 ---
 import Section from "../../layouts/Section.astro";
-import SectionHeading from "../../components/component/SectionHeading.astro";
 import AboutMedia from "../../components/component/AboutMedia.astro";
 
 const title = "当社について";
@@ -10,20 +9,13 @@ const buttonText = "会社概要";
 const image = { url: "/src/assets/about@2x.png", alt: "丸山庄造社長の写真" };
 ---
 
-<Section>
-  <div class="heading">
-    <SectionHeading title={title} />
-  </div>
-  <div class="content">
+<Section title={title}>
+  <div class="about-media">
     <AboutMedia image={image} text={text} buttonText={buttonText} />
   </div>
 </Section>
 
 <style lang="scss">
-  .heading {
-  }
-
-  .content {
-    margin-block-start: calc(10 * var(--rem-ratio));
+  .about-media {
   }
 </style>

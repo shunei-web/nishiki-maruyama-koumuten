@@ -1,6 +1,5 @@
 ---
 import Section from "../../layouts/Section.astro";
-import SectionHeading from "../../components/component/SectionHeading.astro";
 import WorksCard from "../../components/component/WorksCard.astro";
 
 const title = "丸山工務店でできること";
@@ -25,11 +24,8 @@ const posts = await Promise.all(
 );
 ---
 
-<Section>
-  <div class="heading">
-    <SectionHeading title={title} />
-  </div>
-  <div class="content">
+<Section title={title}>
+  <div class="works-card">
     {
       posts.map((post) => (
         <WorksCard
@@ -43,11 +39,7 @@ const posts = await Promise.all(
 </Section>
 
 <style lang="scss">
-  .heading {
-  }
-
-  .content {
-    margin-block-start: calc(10 * var(--rem-ratio));
+  .works-card {
     display: block grid;
     row-gap: calc(10 * var(--rem-ratio));
 

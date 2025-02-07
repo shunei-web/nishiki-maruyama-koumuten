@@ -1,6 +1,5 @@
 ---
 import Section from "../../layouts/Section.astro";
-import SectionHeading from "../../components/component/SectionHeading.astro";
 import ConsultationMedia from "../../components/component/ConsultationMedia.astro";
 
 const title = "個別相談会";
@@ -16,11 +15,8 @@ const access = {
 const buttonText = "お問い合わせ";
 ---
 
-<Section>
-  <div class="heading">
-    <SectionHeading title={title} />
-  </div>
-  <div class="content">
+<Section title={title}>
+  <div class="consultation-media">
     <ConsultationMedia
       image={image}
       text={text}
@@ -31,10 +27,6 @@ const buttonText = "お問い合わせ";
 </Section>
 
 <style lang="scss">
-  .heading {
-  }
-
-  .content {
-    margin-block-start: calc(10 * var(--rem-ratio));
+  .consultation-media {
   }
 </style>

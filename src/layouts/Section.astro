@@ -1,11 +1,22 @@
 ---
+import SectionHeading from "../components/component/SectionHeading.astro";
 
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <section class="section l-section">
   <div class="inner l-section__inner">
     <div class="container l-section__container">
-      <slot />
+      <div class="heading">
+        <SectionHeading title={title} />
+      </div>
+      <div class="content">
+        <slot />
+      </div>
     </div>
   </div>
 </section>
@@ -18,5 +29,12 @@
   }
 
   .container {
+  }
+
+  .heading {
+  }
+
+  .content {
+    margin-block-start: calc(10 * var(--rem-ratio));
   }
 </style>
