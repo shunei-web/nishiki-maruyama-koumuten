@@ -13,14 +13,17 @@
     }
   }
 
-  [data-drawer-animation="fade-in-activate"] {
+  [data-drawer-animation="accordion"] {
     transition-timing-function: ease;
     transition-duration: 1s;
-    transition-property: visibility, opacity;
+    transition-property: visibility, grid-template-rows;
+    display: block grid;
+    grid-template-rows: 1fr;
+    overflow: clip;
 
     &:not(.is-active) {
       visibility: hidden;
-      opacity: 0;
+      grid-template-rows: 0fr;
     }
   }
 

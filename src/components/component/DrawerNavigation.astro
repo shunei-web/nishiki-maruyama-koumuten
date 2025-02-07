@@ -9,20 +9,18 @@ interface Props {
 const { menus } = Astro.props;
 ---
 
-<nav
-  id="js-drawer"
-  class="drawer-navigation"
-  data-drawer-animation="fade-in-activate"
->
+<nav id="js-drawer" class="drawer-navigation" data-drawer-animation="accordion">
   <div class="drawer-navigation__container">
-    <div class="drawer-navigation__menu">
-      {
-        menus.map((item) => (
-          <a href={`${item.url}`} class="drawer-navigation__link">
-            {item.name}
-          </a>
-        ))
-      }
+    <div class="drawer-navigation__content">
+      <div class="drawer-navigation__menu">
+        {
+          menus.map((item) => (
+            <a href={`${item.url}`} class="drawer-navigation__link">
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
     </div>
   </div>
 </nav>
@@ -37,6 +35,9 @@ const { menus } = Astro.props;
   }
 
   .drawer-navigation__container {
+  }
+
+  .drawer-navigation__content {
     padding-block: calc(10 * var(--rem-ratio)) calc(20 * var(--rem-ratio));
     background-color: var(--color-white);
 
