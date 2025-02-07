@@ -1,3 +1,5 @@
+@use "../global" as global;
+
 @media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
   /* ======================================================
   // フェードイン、要素の活性化
@@ -21,9 +23,14 @@
     grid-template-rows: 1fr;
     overflow: clip;
 
-    &:not(.is-active) {
+    &:where(:not(.is-active)) {
       visibility: hidden;
       grid-template-rows: 0fr;
+    }
+
+    @include global.mq() {
+      display: revert;
+      visibility: revert;
     }
   }
 
