@@ -2,10 +2,10 @@
 const { title } = Astro.props;
 ---
 
-<h2>{title}</h2>
+<h2 class="section-heading js-section-heading-animation">{title}</h2>
 
 <style lang="scss">
-  h2 {
+  .section-heading {
     font-size: var(--font-size-30-50);
     line-height: var(--line-height-30-36);
 
@@ -14,3 +14,32 @@ const { title } = Astro.props;
     }
   }
 </style>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils
+    .toArray<HTMLElement>(".js-section-heading-animation")
+    .forEach((heading) => {
+      gsap.fromTo(
+        heading,
+        {
+          x: 20,
+          autoAlpha: 0,
+        },
+        {
+          x: 0,
+          autoAlpha: 1,
+          scrollTrigger: {
+            trigger: heading,
+            toggleActions: "play none none reverse",
+            start: "top 90%",
+            // markers: true,
+          },
+        },
+      );
+    });
+</script>
