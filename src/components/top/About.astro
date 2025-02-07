@@ -28,9 +28,9 @@ const image = { url: "/src/assets/about@2x.png", alt: "丸山庄造社長の写�
 
   gsap.utils
     .toArray<HTMLElement>(".js-about-media-animation")
-    .forEach((heading) => {
+    .forEach((item) => {
       gsap.fromTo(
-        heading,
+        item,
         {
           y: 20,
           autoAlpha: 0,
@@ -39,7 +39,7 @@ const image = { url: "/src/assets/about@2x.png", alt: "丸山庄造社長の写�
           y: 0,
           autoAlpha: 1,
           scrollTrigger: {
-            trigger: heading,
+            trigger: item,
             toggleActions: "play none none reverse",
             start: "top 90%",
             // markers: true,
