@@ -14,6 +14,7 @@
   --color-ground: var(--color-ground-light);
   --color-ground-light: #fff;
   --color-ground-gray: #ddd;
+  --color-ground-light-transparent: rgb(from #fff r g b / 90%);
 
   // オーバーレイ
   --color-overlay: rgb(from #000 r g b / 60%);
