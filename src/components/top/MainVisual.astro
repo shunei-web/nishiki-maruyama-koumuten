@@ -1,4 +1,5 @@
 ---
+import Section from "../../layouts/Section.astro";
 import PictureFrame from "../../components/component/PictureFrame.astro";
 
 interface Image {
@@ -13,67 +14,56 @@ const images: Image[] = [
 ];
 ---
 
-<div class="section">
-  <div class="inner">
-    <div class="content">
-      <hgroup class="heading">
-        <h2 class="heading__main">安全安心な家づくり</h2>
-        <p class="heading__sub">
-          長く住む家だからこそ、<br />安全と快適を追求。<br
-          />理想の住まいをつくります。
-        </p>
-      </hgroup>
+<Section>
+  <div class="main-visual">
+    <hgroup class="heading">
+      <h2 class="heading__main">安全安心な家づくり</h2>
+      <p class="heading__sub">
+        長く住む家だからこそ、<br />安全と快適を追求。<br
+        />理想の住まいをつくります。
+      </p>
+    </hgroup>
 
-      <div class="slider js-main-visual-slider">
-        <!-- Slider main container -->
-        <div class="swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            {
-              images.map((image) => (
-                <div class="swiper-slide">
-                  <PictureFrame url={image.url} alt={image.alt} />
-                </div>
-              ))
-            }
-          </div>
+    <div class="slider js-main-visual-slider">
+      <!-- Slider main container -->
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          {
+            images.map((image) => (
+              <div class="swiper-slide">
+                <PictureFrame url={image.url} alt={image.alt} />
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
   </div>
-</div>
+</Section>
 
 <style lang="scss">
-  .section {
+  .main-visual {
     position: relative;
-    margin-block-start: calc(10 * var(--rem-ratio));
-
-    @include global.mq() {
-      padding-block: calc(10 * var(--rem-ratio));
-      background: var(--color-ground-gray);
-      z-index: var(--z-background);
-    }
-  }
-
-  .inner {
-  }
-
-  .content {
+    margin-block-start: calc(-20 * var(--rem-ratio));
+    margin-block-end: calc(-10 * var(--rem-ratio));
   }
 
   .heading {
+    @include global.clamp(--_inset-inline-end, 7, 71);
+    @include global.clamp(--_padding-block, 10, 22.5);
+    @include global.clamp(--_padding-inline, 10, 49.5);
+
     position: absolute;
     inset-block-end: calc(14 / 324 * 100%);
-    inset-inline-start: calc(118 / 450 * 100%);
-    padding: calc(10 * var(--rem-ratio));
+    inset-inline-end: var(--_inset-inline-end);
     background: var(--color-ground-light-transparent);
+    padding-block: var(--_padding-block);
+    padding-inline: var(--_padding-inline);
 
     @include global.mq() {
       inset-block-end: calc(31 / 580 * 100%);
-      inset-inline-start: calc(618 / 1440 * 100%);
-      padding-block: calc(22.5 * var(--rem-ratio));
-      padding-inline: calc(49.5 * var(--rem-ratio));
     }
   }
 
@@ -103,18 +93,19 @@ const images: Image[] = [
 
   .slider {
     position: relative;
+    margin-inline: calc(50% - 50dvi);
     z-index: var(--z-background);
     block-size: max(
       calc((324 - 10) * var(--rem-ratio)),
       calc(100dvb - (var(--header-block-size) + 10) * var(--rem-ratio))
     );
+    background: var(--color-ground-gray);
 
     @include global.mq() {
+      padding-block: calc(10 * var(--rem-ratio));
       block-size: max(
-        calc((324 - 10) * var(--rem-ratio)),
-        calc(
-          100dvb - (var(--header-block-size) + 10 + 10 * 2) * var(--rem-ratio)
-        )
+        calc(324 * var(--rem-ratio)),
+        calc(100dvb - (var(--header-block-size) + 10) * var(--rem-ratio))
       );
     }
   }
