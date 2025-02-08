@@ -2,24 +2,29 @@
 import SectionHeading from "../components/component/SectionHeading.astro";
 
 interface Props {
-  title: string;
+  title?: string;
+  sectionTag?: keyof HTMLElementTagNameMap;
 }
 
-const { title } = Astro.props;
+const { title = "", sectionTag = "section" } = Astro.props;
 ---
 
-<section class="section l-section">
-  <div class="inner l-section__inner">
-    <div class="container l-section__container">
-      <div class="heading">
-        <SectionHeading title={title} />
-      </div>
-      <div class="content">
-        <slot />
-      </div>
+<Fragment set:html={`<${sectionTag} class="section l-section">`} />
+<div class="inner l-section__inner">
+  <div class="container l-section__container">
+    {
+      title && (
+        <div class="heading">
+          <SectionHeading title={title} />
+        </div>
+      )
+    }
+    <div class="content">
+      <slot />
     </div>
   </div>
-</section>
+</div>
+<Fragment set:html={`</${sectionTag}>`} />
 
 <style lang="scss">
   .section {
