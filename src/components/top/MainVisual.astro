@@ -33,7 +33,7 @@ const images: Image[] = [
           {
             images.map((image) => (
               <div class="swiper-slide">
-                <PictureFrame url={image.url} alt={image.alt} />
+                <PictureFrame url={image.url} alt={image.alt} loading="eager" />
               </div>
             ))
           }
