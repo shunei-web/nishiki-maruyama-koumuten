@@ -10,7 +10,7 @@ const { text, iconUrl = "/src/assets/arrow-right.svg" } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/**/*");
 if (!images[iconUrl]) {
-  throw new Error(`"${iconUrl}" does not exist in glob: "src/assets/**/*"`);
+  throw new Error(`"${iconUrl}" does not exist in glob: "/src/assets/**/*"`);
 }
 
 const icon = await images[iconUrl]().then((module) => module.default);

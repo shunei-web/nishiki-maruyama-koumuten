@@ -1,4 +1,4 @@
-import EventEmitter from "./eventEmitter";
+import EventEmitter from "@ts/eventEmitter";
 
 /**
  * UI要素の制御を行う抽象基底クラス

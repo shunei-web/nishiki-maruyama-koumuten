@@ -36,7 +36,7 @@ class ViewportManager {
     window.dispatchEvent(
       new CustomEvent("viewportManagerDisposed", {
         detail: { currentViewport: this.viewport.content },
-      })
+      }),
     );
   }
 }

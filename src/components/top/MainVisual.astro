@@ -1,6 +1,6 @@
 ---
-import Section from "../../layouts/Section.astro";
-import PictureFrame from "../../components/component/PictureFrame.astro";
+import PictureFrame from "@components/component/PictureFrame.astro";
+import Section from "@layouts/Section.astro";
 
 interface Image {
   url: string;
@@ -127,8 +127,8 @@ const images: Image[] = [
 
 <script>
   import Swiper from "swiper/bundle";
-  import type { SwiperOptions } from "swiper/types";
   import "swiper/css/bundle";
+  import type { SwiperOptions } from "swiper/types";
 
   const sliders = document.querySelectorAll<HTMLElement>(
     ".js-main-visual-slider .swiper",

@@ -1,5 +1,5 @@
-import UIController from "./uiController";
-import backfaceFixed from "./utils/backfaceFixed";
+import UIController from "@ts/uiController";
+import backfaceFixed from "@ts/utils/backfaceFixed";
 
 /**
  * ドロワーメニューの制御を行うクラス
@@ -65,8 +65,12 @@ class DrawerMenuController extends UIController {
   protected updateUI(): void {
     this.element.classList.toggle("is-active", this.isActive);
     this.element.classList.toggle("is-desktop", this.isDesktopMode);
-    this.element.setAttribute("aria-hidden", String(!this.isActive && !this.isDesktopMode));
-    if (!this.element.hasAttribute("aria-label")) this.element.setAttribute("aria-label", "サイトメニュー");
+    this.element.setAttribute(
+      "aria-hidden",
+      String(!this.isActive && !this.isDesktopMode),
+    );
+    if (!this.element.hasAttribute("aria-label"))
+      this.element.setAttribute("aria-label", "サイトメニュー");
     backfaceFixed(this.isActive && !this.isDesktopMode);
   }
 

@@ -1,5 +1,5 @@
-import UIController from "./uiController";
-import normalizeString from "./utils/normalizeString";
+import UIController from "@ts/uiController";
+import normalizeString from "@ts/utils/normalizeString";
 
 /**
  * トグルボタンの制御を行うクラス

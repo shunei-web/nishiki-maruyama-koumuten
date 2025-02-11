@@ -11,7 +11,7 @@ const { url, alt } = Astro.props;
 
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/**/*");
 if (!images[url]) {
-  throw new Error(`"${url}" does not exist in glob: "src/assets/**/*"`);
+  throw new Error(`"${url}" does not exist in glob: "/src/assets/**/*"`);
 }
 ---
 

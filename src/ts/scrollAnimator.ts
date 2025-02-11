@@ -35,7 +35,11 @@ class ScrollAnimator {
    * @param targetsInput ターゲット要素の入力
    * @param options ScrollAnimator のオプション
    */
-  constructor(sentinelInput: SentinelInput, targetsInput: TargetsInput = null, options: ScrollAnimatorOptions = {}) {
+  constructor(
+    sentinelInput: SentinelInput,
+    targetsInput: TargetsInput = null,
+    options: ScrollAnimatorOptions = {},
+  ) {
     const defaultOptions: Required<ScrollAnimatorOptions> = {
       animatedAttribute: "data-animated",
       reverse: false,
@@ -48,7 +52,10 @@ class ScrollAnimator {
 
     this.sentinel = this.createSentinel(sentinelInput);
     this.targetElements = this.getTargetElements(targetsInput);
-    this.observer = new IntersectionObserver(this.handleIntersection, this.options);
+    this.observer = new IntersectionObserver(
+      this.handleIntersection,
+      this.options,
+    );
     this.observer.observe(this.sentinel);
   }
 
@@ -135,11 +142,15 @@ class ScrollAnimator {
     }
 
     if (input instanceof NodeList) {
-      return Array.from(input).filter((el): el is HTMLElement => el instanceof HTMLElement);
+      return Array.from(input).filter(
+        (el): el is HTMLElement => el instanceof HTMLElement,
+      );
     }
 
     if (typeof input === "string") {
-      const elements = Array.from(document.querySelectorAll<HTMLElement>(input));
+      const elements = Array.from(
+        document.querySelectorAll<HTMLElement>(input),
+      );
       if (elements.length === 0) {
         console.warn(`No elements found for selector: ${input}`);
       }
@@ -156,7 +167,10 @@ class ScrollAnimator {
   private handleIntersection = (entries: IntersectionObserverEntry[]): void => {
     const isIntersecting = entries.some((entry) => entry.isIntersecting);
     this.targetElements.forEach((el) => {
-      el.toggleAttribute(this.options.animatedAttribute, this.options.reverse ? !isIntersecting : isIntersecting);
+      el.toggleAttribute(
+        this.options.animatedAttribute,
+        this.options.reverse ? !isIntersecting : isIntersecting,
+      );
     });
   };
 

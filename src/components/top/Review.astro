@@ -1,7 +1,7 @@
 ---
-import Section from "../../layouts/Section.astro";
-import ReviewCard from "../../components/component/ReviewCard.astro";
-import Button from "../../components/component/AfterIconButton.astro";
+import AfterIconButton from "@components/component/AfterIconButton.astro";
+import ReviewCard from "@components/component/ReviewCard.astro";
+import Section from "@layouts/Section.astro";
 
 const title = "お客様の声";
 const buttonText = "施工事例";
@@ -44,7 +44,7 @@ const posts = await Promise.all(
     }
   </div>
   <div class="button">
-    <Button text={buttonText} />
+    <AfterIconButton text={buttonText} />
   </div>
 </Section>
 

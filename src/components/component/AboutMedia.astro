@@ -1,6 +1,6 @@
 ---
-import Button from "../../components/component/AfterIconButton.astro";
-import PictureFrame from "../../components/component/PictureFrame.astro";
+import AfterIconButton from "@components/component/AfterIconButton.astro";
+import PictureFrame from "@components/component/PictureFrame.astro";
 
 interface Props {
   image: {
@@ -22,7 +22,7 @@ const { image, text, buttonText } = Astro.props;
     <div class="media__content">
       <p class="media__text">{text}</p>
       <div class="media__button">
-        <Button text={buttonText} />
+        <AfterIconButton text={buttonText} />
       </div>
     </div>
   </div>
