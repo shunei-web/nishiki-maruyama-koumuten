@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 
-const subfolder = "/murayama-koumuten/";
+const subfolder = "/maruyama-koumuten/";
 
 // https://astro.build/config
 export default defineConfig({
