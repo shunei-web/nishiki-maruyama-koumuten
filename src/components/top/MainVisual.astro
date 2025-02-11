@@ -46,8 +46,7 @@ const images: Image[] = [
 <style lang="scss">
   .main-visual {
     position: relative;
-    margin-block-start: calc(-20 * var(--rem-ratio));
-    margin-block-end: calc(-10 * var(--rem-ratio));
+    margin-block: calc(-20 * var(--rem-ratio)) calc(-10 * var(--rem-ratio));
   }
 
   .heading {
@@ -58,55 +57,55 @@ const images: Image[] = [
     position: absolute;
     inset-block-end: calc(14 / 324 * 100%);
     inset-inline-end: var(--_inset-inline-end);
-    background: var(--color-ground-light-transparent);
     padding-block: var(--_padding-block);
     padding-inline: var(--_padding-inline);
+    background: var(--color-ground-light-transparent);
 
-    @include global.mq() {
+    @include global.mq {
       inset-block-end: calc(31 / 580 * 100%);
     }
   }
 
   .heading__main {
-    font-size: var(--font-size-30-48);
-    line-height: var(--line-height-30-36);
-    font-weight: 400;
     max-inline-size: fit-content;
     margin-inline: auto;
+    font-size: var(--font-size-30-48);
+    font-weight: 400;
+    line-height: var(--line-height-30-36);
 
-    @include global.mq() {
+    @include global.mq {
       line-height: var(--line-height-48-58);
     }
   }
 
   .heading__sub {
+    max-inline-size: fit-content;
+    margin-block-start: calc(20 * var(--rem-ratio));
+    margin-inline: auto;
     font-size: var(--font-size-20-32);
     line-height: var(--line-height-20-24);
-    margin-block-start: calc(20 * var(--rem-ratio));
-    max-inline-size: fit-content;
-    margin-inline: auto;
 
-    @include global.mq() {
+    @include global.mq {
       line-height: var(--line-height-32-39);
     }
   }
 
   .slider {
     position: relative;
-    margin-inline: calc(50% - 50dvi);
     z-index: var(--z-background);
     block-size: max(
       calc((324 - 10) * var(--rem-ratio)),
       calc(100dvb - (var(--header-block-size) + 10) * var(--rem-ratio))
     );
+    margin-inline: calc(50% - 50dvi);
     background: var(--color-ground-gray);
 
-    @include global.mq() {
-      padding-block: calc(10 * var(--rem-ratio));
+    @include global.mq {
       block-size: max(
         calc(324 * var(--rem-ratio)),
         calc(100dvb - (var(--header-block-size) + 10) * var(--rem-ratio))
       );
+      padding-block: calc(10 * var(--rem-ratio));
     }
   }
 
@@ -119,8 +118,8 @@ const images: Image[] = [
 
   .swiper-slide {
     :global(img) {
-      object-fit: cover;
       block-size: 100%;
+      object-fit: cover;
     }
   }
 </style>
