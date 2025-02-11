@@ -74,9 +74,10 @@ const { image, text, access, buttonText } = Astro.props;
     @container (min-width: 600px) {
       max-inline-size: revert;
     }
+
     :global(img) {
-      object-fit: cover;
       aspect-ratio: 1;
+      object-fit: cover;
 
       @container (min-width: 600px) {
         aspect-ratio: revert;
@@ -85,12 +86,12 @@ const { image, text, access, buttonText } = Astro.props;
   }
 
   .media__text {
+    margin-block-start: calc(10 * var(--rem-ratio));
     font-size: var(--font-size-12-20);
     line-height: var(--line-height-12-15);
     word-break: keep-all;
-    margin-block-start: calc(10 * var(--rem-ratio));
 
-    @include global.mq() {
+    @include global.mq {
       line-height: var(--line-height-20-24);
     }
 
@@ -110,11 +111,11 @@ const { image, text, access, buttonText } = Astro.props;
 
   .media__access {
     grid-area: access;
-    text-align: center;
     font-size: var(--font-size-20-30);
     line-height: var(--line-height-20-24);
+    text-align: center;
 
-    @include global.mq() {
+    @include global.mq {
       line-height: var(--line-height-30-36);
     }
   }

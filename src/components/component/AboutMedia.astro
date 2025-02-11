@@ -56,8 +56,8 @@ const { image, text, buttonText } = Astro.props;
     grid-area: image;
 
     :global(img) {
-      object-fit: cover;
       block-size: 100%;
+      object-fit: cover;
     }
   }
 
@@ -75,14 +75,15 @@ const { image, text, buttonText } = Astro.props;
     font-size: var(--font-size-15-20);
     line-height: var(--line-height-15-18);
 
-    @include global.mq() {
+    @include global.mq {
       line-height: var(--line-height-24-20);
     }
   }
+
   .media__button {
     grid-area: button;
-    text-align: center;
     margin-block-start: calc(20 * var(--rem-ratio));
+    text-align: center;
 
     @container (min-width: 600px) {
       margin-block-start: calc(62 * var(--rem-ratio));

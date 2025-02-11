@@ -23,16 +23,16 @@ const { menus } = Astro.props;
   .footer-navigation {
     display: none;
 
-    @include global.mq() {
+    @include global.mq {
       display: block flex;
       column-gap: calc(40 * var(--rem-ratio));
     }
   }
 
   .footer-navigation__link {
-    text-align: center;
+    padding-block: calc((80 - 36) / 2 * var(--rem-ratio));
     font-size: var(--font-size-20-30-bp);
     line-height: var(--line-height-30-36);
-    padding-block: calc((80 - 36) / 2 * var(--rem-ratio));
+    text-align: center;
   }
 </style>

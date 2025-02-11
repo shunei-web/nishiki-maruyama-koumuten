@@ -33,8 +33,7 @@ const { title, thumbnail, description } = Astro.props;
       "title title"
       "thumbnail description";
     grid-template-columns: 110fr 265fr;
-    column-gap: calc(5 * var(--rem-ratio));
-    row-gap: calc(5 * var(--rem-ratio));
+    gap: calc(5 * var(--rem-ratio));
 
     @container (min-width: 600px) {
       grid-template-areas:
@@ -51,7 +50,7 @@ const { title, thumbnail, description } = Astro.props;
     font-weight: 400;
     line-height: var(--line-height-20-24);
 
-    @include global.mq() {
+    @include global.mq {
       line-height: var(--line-height-30-36);
     }
   }
@@ -60,8 +59,8 @@ const { title, thumbnail, description } = Astro.props;
     grid-area: thumbnail;
 
     :global(img) {
-      object-fit: cover;
       aspect-ratio: calc(110 / 100);
+      object-fit: cover;
 
       @container (min-width: 600px) {
         aspect-ratio: calc(((1000 - (10 * 2)) / 3) / 203);
@@ -74,7 +73,7 @@ const { title, thumbnail, description } = Astro.props;
     font-size: var(--font-size-15-20);
     line-height: var(--line-height-15-18);
 
-    @include global.mq() {
+    @include global.mq {
       line-height: var(--line-height-20-24);
     }
   }

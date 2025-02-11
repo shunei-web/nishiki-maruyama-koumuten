@@ -31,6 +31,7 @@ $breakpoints: (
 /// @require {map} $breakpoints
 @mixin mq($breakpoint: bp, $below: false) {
   $breakpoint-value: map.get($breakpoints, $breakpoint);
+
   @if meta.type-of($breakpoint) == number {
     $breakpoint-value: $breakpoint;
   }

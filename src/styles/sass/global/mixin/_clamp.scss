@@ -4,12 +4,18 @@
 /// @param {Number} $max-size - 最大サイズ値、単位無しpx値
 /// @param {String} $min-width - 最小ビューポート幅、単位無しpx値
 /// @param {String} $max-width - 最大ビューポート幅、単位無しpx値
-@mixin clamp($property, $min-size, $max-size, $min-width: var(--viewport-min), $max-width: var(--viewport-max)) {
+@mixin clamp(
+  $property,
+  $min-size,
+  $max-size,
+  $min-width: var(--viewport-min),
+  $max-width: var(--viewport-max)
+) {
   #{$property}: clamp(
     calc(min(#{$min-size}, #{$max-size}) * var(--rem-ratio)),
     calc(
-      #{$min-size} * var(--rem-ratio) + (100dvw - #{$min-width} * 1px) * (#{$max-size} - #{$min-size}) / (#{$max-width} -
-            #{$min-width})
+      #{$min-size} * var(--rem-ratio) + (100dvw - #{$min-width} * 1px) *
+        (#{$max-size} - #{$min-size}) / (#{$max-width} - #{$min-width})
     ),
     calc(max(#{$min-size}, #{$max-size}) * var(--rem-ratio))
   );

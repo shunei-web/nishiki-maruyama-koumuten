@@ -23,25 +23,25 @@ const icon = await images[iconUrl]().then((module) => module.default);
     @include global.clamp(--_padding-block, 9, 7);
 
     display: inline flex;
+    column-gap: calc(10 * var(--rem-ratio));
     align-items: center;
     padding-block: var(--_padding-block);
     padding-inline: calc(25 * var(--rem-ratio));
-    border-radius: calc(1px / 0);
-    color: var(--color-button-text);
-    background: var(--color-button-ground);
-    column-gap: calc(10 * var(--rem-ratio));
     font-size: var(--font-size-20-30);
     line-height: var(--line-height-20-24);
+    color: var(--color-button-text);
+    background: var(--color-button-ground);
+    border-radius: calc(1px / 0);
 
-    @include global.mq() {
+    @include global.mq {
       line-height: var(--line-height-30-36);
     }
 
     &::after {
-      content: "";
-      background-image: var(--icon);
       inline-size: calc(32 * var(--rem-ratio));
       aspect-ratio: 1;
+      content: "";
+      background-image: var(--icon);
     }
   }
 </style>

@@ -38,7 +38,7 @@ const menus = [
 
 <style lang="scss">
   .section {
-    @include global.mq() {
+    @include global.mq {
       padding-block: calc(10 * var(--rem-ratio));
     }
   }
@@ -50,7 +50,7 @@ const menus = [
     display: block flex;
     justify-content: space-between;
 
-    @include global.mq() {
+    @include global.mq {
       padding-inline-start: calc(10 * var(--rem-ratio));
     }
   }

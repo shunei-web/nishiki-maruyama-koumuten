@@ -35,7 +35,9 @@ const backfaceFixed = (fixed: boolean): void => {
 const getScrollBarSize = (): number => {
   const { innerWidth, innerHeight } = window;
   const { clientWidth, clientHeight } = document.documentElement;
-  return isVerticalWritingMode() ? innerHeight - clientHeight : innerWidth - clientWidth;
+  return isVerticalWritingMode()
+    ? innerHeight - clientHeight
+    : innerWidth - clientWidth;
 };
 
 /**
@@ -51,7 +53,9 @@ const getScrollPosition = (fixed: boolean): number => {
   if (header) {
     if (getHeaderPosition() === "sticky") {
       headerBlockSize = getHeaderBlockSize();
-    } else if ((header.getAttribute(BACKFACE_FIXED_ATTRIBUTE) as string) === "sticky") {
+    } else if (
+      (header.getAttribute(BACKFACE_FIXED_ATTRIBUTE) as string) === "sticky"
+    ) {
       headerBlockSize = getHeaderBlockSize();
     }
   }
@@ -60,7 +64,9 @@ const getScrollPosition = (fixed: boolean): number => {
     const { scrollLeft = 0, scrollTop = 0 } = document.scrollingElement ?? {};
     return (isVerticalWritingMode() ? scrollLeft : scrollTop) - headerBlockSize;
   }
-  return parseInt(document.body.style.insetBlockStart || "0", 10) - headerBlockSize;
+  return (
+    parseInt(document.body.style.insetBlockStart || "0", 10) - headerBlockSize
+  );
 };
 
 /**
@@ -70,7 +76,9 @@ const getHeaderBlockSize = (): number => {
   const header = document.querySelector(HEADER_SELECTOR) as HTMLElement;
   if (!header) return 0;
   const { position, blockSize } = window.getComputedStyle(header);
-  return parseInt(position === "fixed" || position === "sticky" ? blockSize : "0");
+  return parseInt(
+    position === "fixed" || position === "sticky" ? blockSize : "0",
+  );
 };
 
 /**
@@ -89,7 +97,11 @@ const getHeaderPosition = (): string => {
  * @param scrollBarWidth - スクロールバーの幅
  * @param scrollPosition - スクロール位置
  */
-const applyStyles = (apply: boolean, scrollBarWidth: number, scrollPosition: number): void => {
+const applyStyles = (
+  apply: boolean,
+  scrollBarWidth: number,
+  scrollPosition: number,
+): void => {
   // Firefoxでヘッダーがstickyの場合にヘッダーが画面外になることの対策
   const header = document.querySelector(HEADER_SELECTOR) as HTMLElement;
   if (header) {
@@ -123,7 +135,9 @@ const applyStyles = (apply: boolean, scrollBarWidth: number, scrollPosition: num
 const restorePosition = (scrollPosition: number): void => {
   const isVertical = isVerticalWritingMode();
   window.scrollTo({
-    [isVertical ? "left" : "top"]: isVertical ? scrollPosition : -scrollPosition,
+    [isVertical ? "left" : "top"]: isVertical
+      ? scrollPosition
+      : -scrollPosition,
     behavior: "instant",
   });
 };
@@ -133,7 +147,9 @@ const restorePosition = (scrollPosition: number): void => {
  * @returns 縦書きの場合true、それ以外はfalse
  */
 const isVerticalWritingMode = (): boolean => {
-  return window.getComputedStyle(document.documentElement).writingMode.includes("vertical");
+  return window
+    .getComputedStyle(document.documentElement)
+    .writingMode.includes("vertical");
 };
 
 export default backfaceFixed;

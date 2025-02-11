@@ -5,8 +5,8 @@
   box-sizing: border-box;
   font: inherit;
   color: inherit;
-  cursor: pointer;
   touch-action: manipulation;
+  cursor: pointer;
 }
 
 *,
@@ -33,6 +33,7 @@
   &:focus-visible {
     opacity: var(--opacity);
   }
+
   @media (any-hover: hover) {
     &:hover:not(:disabled) {
       opacity: var(--opacity);

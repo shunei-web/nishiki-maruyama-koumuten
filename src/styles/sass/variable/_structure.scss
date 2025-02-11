@@ -23,7 +23,7 @@
   // ヘッダー
   --header-block-size: 100;
 
-  @include global.mq() {
+  @include global.mq {
     --header-block-size: 120;
   }
 }

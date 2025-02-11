@@ -54,13 +54,12 @@ const { name, comment, thumbnail, portrait } = Astro.props;
   }
 
   .card__block {
-    grid-area: block;
     display: block grid;
+    grid-area: block;
     grid-template-areas: "portrait name";
     grid-template-columns: 60fr 115fr;
     column-gap: calc(5 * var(--rem-ratio));
-    align-items: center;
-    justify-items: center;
+    place-items: center center;
     margin-block-start: calc(5 * var(--rem-ratio));
 
     @container (min-width: 600px) {
@@ -68,11 +67,11 @@ const { name, comment, thumbnail, portrait } = Astro.props;
         "portrait"
         "name";
       grid-template-columns: revert;
-      margin-inline-start: auto;
-      max-inline-size: calc(100 * var(--rem-ratio));
-      align-items: revert;
-      align-content: start;
       row-gap: calc(5 * var(--rem-ratio));
+      align-content: start;
+      align-items: revert;
+      max-inline-size: calc(100 * var(--rem-ratio));
+      margin-inline-start: auto;
     }
   }
 
@@ -83,7 +82,7 @@ const { name, comment, thumbnail, portrait } = Astro.props;
     line-height: var(--line-height-15-18);
     word-break: keep-all;
 
-    @include global.mq() {
+    @include global.mq {
       line-height: var(--line-height-20-24);
     }
   }
@@ -102,7 +101,7 @@ const { name, comment, thumbnail, portrait } = Astro.props;
     font-size: var(--font-size-15-20);
     line-height: var(--line-height-15-18);
 
-    @include global.mq() {
+    @include global.mq {
       line-height: var(--line-height-20-24);
     }
 
@@ -117,8 +116,8 @@ const { name, comment, thumbnail, portrait } = Astro.props;
     grid-area: thumbnail;
 
     :global(img) {
-      object-fit: cover;
       aspect-ratio: calc(180 / 200);
+      object-fit: cover;
 
       @container (min-width: 600px) {
         aspect-ratio: calc(480 / 300);

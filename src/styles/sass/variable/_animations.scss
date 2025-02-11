@@ -16,34 +16,34 @@
   }
 
   [data-drawer-animation="accordion"] {
-    transition-timing-function: ease;
-    transition-duration: 1s;
-    transition-property: visibility, grid-template-rows;
     display: block grid;
     grid-template-rows: 1fr;
     overflow: clip;
+    transition-timing-function: ease;
+    transition-duration: 1s;
+    transition-property: visibility, grid-template-rows;
 
     &:where(:not(.is-active)) {
       visibility: hidden;
       grid-template-rows: 0fr;
     }
 
-    @include global.mq() {
+    @include global.mq {
       display: revert;
       visibility: revert;
     }
   }
 
   [data-overlay-animation="fade-in-activate"] {
+    background-color: var(--color-overlay);
     transition-timing-function: ease;
     transition-duration: 1s;
     transition-property: visibility, opacity, background-color;
-    background-color: var(--color-overlay);
 
     #js-drawer:not(.is-active) ~ & {
       visibility: hidden;
-      opacity: 0;
       background-color: transparent;
+      opacity: 0;
     }
   }
 }

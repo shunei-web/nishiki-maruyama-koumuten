@@ -41,7 +41,7 @@ const { menus } = Astro.props;
     padding-block: calc(10 * var(--rem-ratio)) calc(20 * var(--rem-ratio));
     background-color: var(--color-white);
 
-    @include global.mq() {
+    @include global.mq {
       padding-block: revert;
     }
   }
@@ -52,7 +52,7 @@ const { menus } = Astro.props;
     max-inline-size: calc(377 * var(--rem-ratio));
     margin-inline: auto;
 
-    @include global.mq() {
+    @include global.mq {
       display: block flex;
       column-gap: calc(40 * var(--rem-ratio));
       max-inline-size: revert;
@@ -60,14 +60,14 @@ const { menus } = Astro.props;
   }
 
   .drawer-navigation__link {
-    text-align: center;
+    padding-block: calc(10 * var(--rem-ratio));
     font-size: var(--font-size-30);
     line-height: var(--line-height-30-36);
-    padding-block: calc(10 * var(--rem-ratio));
+    text-align: center;
 
-    @include global.mq() {
-      font-size: var(--font-size-20-30-bp);
+    @include global.mq {
       padding-block: calc((80 - 36) / 2 * var(--rem-ratio));
+      font-size: var(--font-size-20-30-bp);
     }
   }
 

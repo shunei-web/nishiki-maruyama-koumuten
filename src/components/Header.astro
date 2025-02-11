@@ -44,7 +44,7 @@ const menus = [
   .section {
     margin-block-start: revert;
 
-    @include global.mq() {
+    @include global.mq {
       padding-block: calc(10 * var(--rem-ratio));
     }
   }
@@ -56,7 +56,7 @@ const menus = [
     display: block flex;
     justify-content: space-between;
 
-    @include global.mq() {
+    @include global.mq {
       padding-inline-start: calc(10 * var(--rem-ratio));
     }
   }
@@ -74,13 +74,13 @@ const menus = [
     inset-inline: 0;
     z-index: var(--z-navigation);
 
-    @include global.mq() {
+    @include global.mq {
       position: revert;
     }
   }
 
   .hamburger {
-    @include global.mq() {
+    @include global.mq {
       display: none;
     }
   }

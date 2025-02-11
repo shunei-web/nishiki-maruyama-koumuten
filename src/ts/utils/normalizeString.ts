@@ -8,7 +8,10 @@
  *          指定された区切り文字で結合された結果を返します。
  *          入力が文字列でない場合は空文字列を返します。
  */
-function normalizeString(input: string | string[], delimiter: string = " "): string {
+function normalizeString(
+  input: string | string[],
+  delimiter: string = " ",
+): string {
   if (Array.isArray(input)) {
     return [...new Set(input.filter(Boolean))].join(delimiter);
   }
